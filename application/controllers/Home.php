@@ -29,17 +29,26 @@ class Home extends CI_Controller{
             $cekloginid = $this->M_reservasirumahmakan->cek_login($where)->result();
             if ($ceklogin > 0) {
                 foreach ($cekloginid as $cek) {
-                    $id_admin = $cek->id_admin;}
+                    $id_rm = $cek->id_rm;}
 
                 $sess_data =  array(
                     'username' => $username,
                     'password' => $password,
-                    'id_admin' => $id_admin,
+                    'id_rm' => $id_rm,
+                    'nama_rm' => $nama_rm,
+                    'nama_pemilik' => $nama_pemilik,
+                    'alamat_rm' => $alamat_rm,
+                    'no_hp' => $no_hp,
                     'login' => 'Berhasil'
                 );
 
-                $this->session->set_userdata($sess_data);   
-                redirect(base_url('dashboard')); 
+                $this->session->set_userdata($sess_data); 
+                if ($sess_data['username']=="admin"){
+                    redirect(base_url('dashboard')); 
+                }else {
+                    redirect(base_url('dashboardrumahmakan')); 
+                }
+                
             }else{
                 $this->load->view('error');
             }

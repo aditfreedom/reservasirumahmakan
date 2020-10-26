@@ -18,7 +18,7 @@
     <?php foreach ($status_reservasi as $status) : ?>
 		<form method="post" action="<?php echo base_url().'dashboard/updateuser'; ?>">
         <div class="form-group">
-        <input type="hidden" name="id_admin" class="form-control" value="<?php echo $status->id_admin;?>">
+        <input type="hidden" name="id_rm" class="form-control" value="<?php echo $status->id_rm;?>">
         </div>
         <div class="form-group">
         <label for="">Username</label>

@@ -87,8 +87,8 @@ public function editmeja($id){
 
 public function edituser($id){
     $sess_data = $this->session->userdata();
-    $id =    array ('id_admin' => $id);
-    $data['status_reservasi'] = $this->M_reservasirumahmakan->edituser($id,'tb_user')->result();
+    $id =    array ('id_rm' => $id);
+    $data['status_reservasi'] = $this->M_reservasirumahmakan->edituser($id,'tb_rm')->result();
     $this->load->view('template/header');
   $this->load->view('template/sidebar',$sess_data);
   $this->load->view('edituser',$data);
@@ -169,7 +169,7 @@ public function updatereservasi(){
 
 
 public function updateuser(){
-    $id_admin       = $this->input->post('id_admin');
+    $id_rm      = $this->input->post('id_rm');
     $username       = $this->input->post('username');
     $password       = $this->input->post('password');
     
@@ -179,15 +179,15 @@ public function updateuser(){
     );
 
     $where = array(
-        'id_admin' => $id_admin
+        'id_rm' => $id_rm
     );
 
-    $this->M_reservasirumahmakan->updateuser($where,$data,'tb_useradmin');
+    $this->M_reservasirumahmakan->updateuser($where,$data,'tb_rm');
     
     $sess_data =  array(
         'username' => $username,
         'password' => $password,
-        'id_admin' => $id_admin,
+        'id_rm' => $id_rm,
         );
 
     $this->session->set_userdata($sess_data);   

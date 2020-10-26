@@ -30,10 +30,10 @@
           <tbody>
           <?php $i = 1;  ?>
 		    <tr class="nomor text-center">
-            <td><?php echo $id_admin;?></td>
+            <td><?php echo $id_rm;?></td>
             <td><?php echo $username;?></td>
 			      <td><?php echo $password;?></td>
-            <td><?php echo anchor('dashboard/edituser/'.$id_admin,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+            <td><?php echo anchor('dashboard/edituser/'.$id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
 		</tr>
 	<?php ?>
           </tbody>

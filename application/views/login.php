@@ -20,7 +20,7 @@
   </div>
 <div class="container shadow p-3 mb-5 bg-white rounded">
         <img class="img mx-auto d-block" src="<?php echo base_url('favicon.png');?>" width="100px"><br>
-        <h6 class="text-center font-weight-bold">ADMIN<br>RESERVASI RUMAH MAKAN<br>SILAHKAN LOGIN</h6>
+        <h6 class="text-center font-weight-bold">RESERVASI RUMAH MAKAN<br>SILAHKAN LOGIN</h6>
         <form action="<?php echo base_url('home/login_aksi');?>" method="post">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">

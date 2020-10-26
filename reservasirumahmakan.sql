@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 04, 2020 at 01:07 AM
+-- Generation Time: Oct 26, 2020 at 05:18 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -61,11 +61,12 @@ CREATE TABLE `tb_meja` (
 --
 
 INSERT INTO `tb_meja` (`id_meja`, `id_rm`, `nama_rm`, `no_meja`, `kapasitas`, `status`) VALUES
-(2, 5, 'Bakso Lampoh Arab', '1', '5', ''),
+(2, 5, 'Bakso Lampoh Arab', '1', '5', 'Ready'),
 (3, 2, 'Ayam Lepaas', '3', '3', 'Ready'),
 (4, 6, 'Warung CM', '1', '2', 'Ready'),
 (5, 7, 'Pak Ulis', '1', '4', 'Ready'),
-(7, 7, 'Pak Ulis', '02', '4', 'Ready');
+(7, 7, 'Pak Ulis', '02', '4', 'Ready'),
+(8, 9, '', '1', '4', 'Ready');
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,8 @@ INSERT INTO `tb_menu` (`id_menu`, `id_rm`, `nama_rm`, `nama_menu`, `harga`, `ket
 (2, 5, 'Bakso Lampoh Arab', 'Paket 02', 25000, 'Bakso Jumbo + Teh Dingin', 'bag5.jpg'),
 (3, 7, 'Pak Ulis', 'Paket 01', 20000, 'Ayam Penyet + Teh Botol', '6421.jpg'),
 (4, 5, 'Bakso Lampoh Arab', 'Paket 03', 25000, 'Bakso Urap + Teh Dingin', 'menueditor_item_992607a576bf42728a625e9c06256c42_1574132213107416187_(1).jpg'),
-(5, 5, 'Bakso Lampoh Arab', 'Paket 04', 35000, '2 Bakso + 2 Teh Dingin', 'menueditor_item_992607a576bf42728a625e9c06256c42_1574132213107416187_(1)1.jpg');
+(5, 5, 'Bakso Lampoh Arab', 'Paket 04', 35000, '2 Bakso + 2 Teh Dingin', 'menueditor_item_992607a576bf42728a625e9c06256c42_1574132213107416187_(1)1.jpg'),
+(6, 9, 'Cak Soleh', 'Paket 01', 25000, 'Bakso Jumbo + Teh Dingin', 'bg_login.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,7 @@ INSERT INTO `tb_reservasi` (`id_reservasi`, `nama_konsumen`, `no_hp`, `nama_rm`,
 (1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Diterima'),
 (2, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Diterima'),
 (3, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Menunggu'),
-(4, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 6, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Diterima');
+(4, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 6, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Menunggu');
 
 -- --------------------------------------------------------
 
@@ -146,11 +148,12 @@ CREATE TABLE `tb_rm` (
 --
 
 INSERT INTO `tb_rm` (`id_rm`, `nama_rm`, `nama_pemilik`, `alamat_rm`, `no_hp`, `foto_rm`, `username`, `password`) VALUES
-(2, 'Ayam Lepaas', 'Muhammad Roby\r\n', 'Bireuen', '081362059403', '22.jpg', 'ayamlepas', 'ayamlepas'),
+(2, 'Ayam Lepaas', 'Muhammad Roby', 'Bireuen', '081362059403', 'adminrm.jpg', 'ayamlepas', 'ayamlepas'),
 (5, 'Bakso Lampoh Arab', 'Asep', 'Bireuen', '081362059403', 'foto.jpg', 'lampoharab', 'lampoharab'),
 (6, 'Warung CM', 'Aditya Aziz Fikhri', 'Bireuen', '081362059403', 'foto1.jpg', 'warungcm', 'warungcm'),
 (7, 'Pak Ulis', 'Pak Ulis', 'Lhokseumawe', '081362059403', 'foto2.jpg', 'pakulis', 'pakulis'),
-(9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh');
+(9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh'),
+(10, 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -226,13 +229,13 @@ ALTER TABLE `tb_konsumen`
 -- AUTO_INCREMENT for table `tb_meja`
 --
 ALTER TABLE `tb_meja`
-  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tb_menu`
 --
 ALTER TABLE `tb_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tb_reservasi`
@@ -244,7 +247,7 @@ ALTER TABLE `tb_reservasi`
 -- AUTO_INCREMENT for table `tb_rm`
 --
 ALTER TABLE `tb_rm`
-  MODIFY `id_rm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_rm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tb_useradmin`

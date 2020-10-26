@@ -3,7 +3,7 @@
 class M_reservasirumahmakan extends CI_Model{
 
     function cek_login($where){
-        return $this->db->get_where('tb_useradmin',$where);
+        return $this->db->get_where('tb_rm',$where);
     }
 
     function cek_loginrumahmakan($where){
@@ -12,7 +12,7 @@ class M_reservasirumahmakan extends CI_Model{
 
 
     public function tampil_data_datarumahmakan(){
-        return $this->db->get('tb_rm');
+        return $this->db->query("SELECT * FROM tb_rm WHERE NOT nama_rm='admin'");
      }
 
      public function tampil_data_datameja(){
@@ -86,7 +86,7 @@ public function editreservasirumahmakan($id)
 
    public function edituser($id)
    {
-       return $this->db->get_where('tb_useradmin',$id);  
+       return $this->db->get_where('tb_rm',$id);  
    }
 
    public function edituserrumahmakan($id)
@@ -97,7 +97,7 @@ public function editreservasirumahmakan($id)
 
    public function updateuser($where,$data)
    {   $this->db->where($where);
-       $this->db->update('tb_useradmin',$data); 
+       $this->db->update('tb_rm',$data); 
    }
 
    public function updateuserrumahmakan($where,$data)
