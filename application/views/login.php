@@ -35,6 +35,7 @@
                 <input type="password" class="form-control" placeholder="Password" name="password" required>
             </div>
             <button type="submit" class="btn btn-primary btn-block font-weight-bold">LOGIN</button>
+            <div class="d-flex justify-content-center" style="margin-top:-20px"><strong ><a href="<?php echo base_url('home/registrasi');?>">REGISTER</a></strong></div>
         </form>
     </div>
     <br><br>

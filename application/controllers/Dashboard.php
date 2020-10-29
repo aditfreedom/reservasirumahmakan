@@ -33,6 +33,16 @@ class Dashboard extends CI_Controller{
 
  }
 
+ public function datarumahmakanapproval(){
+    $data['tb_rm'] = $this->M_reservasirumahmakan->tampil_data_datarumahmakanapproval()->result();
+    $sess_data = $this->session->userdata();
+    $this->load->view('template/header');
+    $this->load->view('template/sidebar', $sess_data);
+    $this->load->view('datarumahmakanapproval',$data);
+    $this->load->view('template/footer');
+
+}
+
  public function datamenu(){
     $data['tb_menu'] = $this->M_reservasirumahmakan->tampil_data_datamenu()->result();
     $sess_data = $this->session->userdata();
@@ -287,6 +297,7 @@ public function updaterm(){
     $foto_rm            = $_FILES['foto_rm']['name'];
     $username           = $this->input->post('username');
     $password           = $this->input->post('password');
+    $status           = $this->input->post('status');
 
     $config['upload_path']          = 'asset/foto/';
     $config['allowed_types']        = 'gif|jpg|png';
@@ -314,7 +325,8 @@ public function updaterm(){
         'no_hp' =>$no_hp,
         'foto_rm' => $foto_rm,
         'username' => $username,
-        'password' => $password
+        'password' => $password,
+        'status' => $status
     );
 
     $where = array(
@@ -332,6 +344,8 @@ public function tambahrm(){
     $foto_rm            = $_FILES['foto_rm'];
     $username           = $this->input->post('username');
     $password           = $this->input->post('password');
+    $status             = $this->input->post('status');
+
 
 
         $config['upload_path']          = 'asset/foto/';
@@ -357,7 +371,8 @@ public function tambahrm(){
         'no_hp' => $no_hp,
         'foto_rm' =>$foto_rm,
         'username' => $username,
-        'password' => $password
+        'password' => $password,
+        'status' => $status
     );
 
     $this->M_reservasirumahmakan->inputrm($data,'tb_rm');

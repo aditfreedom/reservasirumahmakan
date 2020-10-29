@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2020 at 05:18 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.2.33
+-- Waktu pembuatan: 29 Okt 2020 pada 11.09
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_konsumen`
+-- Struktur dari tabel `tb_konsumen`
 --
 
 CREATE TABLE `tb_konsumen` (
@@ -35,7 +35,7 @@ CREATE TABLE `tb_konsumen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_konsumen`
+-- Dumping data untuk tabel `tb_konsumen`
 --
 
 INSERT INTO `tb_konsumen` (`id_konsumen`, `nama_konsumen`, `no_hp`, `password`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `tb_konsumen` (`id_konsumen`, `nama_konsumen`, `no_hp`, `password`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_meja`
+-- Struktur dari tabel `tb_meja`
 --
 
 CREATE TABLE `tb_meja` (
@@ -57,7 +57,7 @@ CREATE TABLE `tb_meja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_meja`
+-- Dumping data untuk tabel `tb_meja`
 --
 
 INSERT INTO `tb_meja` (`id_meja`, `id_rm`, `nama_rm`, `no_meja`, `kapasitas`, `status`) VALUES
@@ -66,12 +66,13 @@ INSERT INTO `tb_meja` (`id_meja`, `id_rm`, `nama_rm`, `no_meja`, `kapasitas`, `s
 (4, 6, 'Warung CM', '1', '2', 'Ready'),
 (5, 7, 'Pak Ulis', '1', '4', 'Ready'),
 (7, 7, 'Pak Ulis', '02', '4', 'Ready'),
-(8, 9, '', '1', '4', 'Ready');
+(9, 5, 'Bakso Lampoh Arab', '2', '4', 'Ready'),
+(10, 9, 'Cak Soleh', '1', '3', 'Ready');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_menu`
+-- Struktur dari tabel `tb_menu`
 --
 
 CREATE TABLE `tb_menu` (
@@ -85,7 +86,7 @@ CREATE TABLE `tb_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_menu`
+-- Dumping data untuk tabel `tb_menu`
 --
 
 INSERT INTO `tb_menu` (`id_menu`, `id_rm`, `nama_rm`, `nama_menu`, `harga`, `ket_menu`, `foto`) VALUES
@@ -98,7 +99,7 @@ INSERT INTO `tb_menu` (`id_menu`, `id_rm`, `nama_rm`, `nama_menu`, `harga`, `ket
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_reservasi`
+-- Struktur dari tabel `tb_reservasi`
 --
 
 CREATE TABLE `tb_reservasi` (
@@ -117,7 +118,7 @@ CREATE TABLE `tb_reservasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_reservasi`
+-- Dumping data untuk tabel `tb_reservasi`
 --
 
 INSERT INTO `tb_reservasi` (`id_reservasi`, `nama_konsumen`, `no_hp`, `nama_rm`, `id_rm`, `no_meja`, `nama_menu`, `jumlah_pemesanan`, `total_harga`, `tanggal_reservasi`, `waktu_reservasi`, `status_reservasi`) VALUES
@@ -129,7 +130,7 @@ INSERT INTO `tb_reservasi` (`id_reservasi`, `nama_konsumen`, `no_hp`, `nama_rm`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_rm`
+-- Struktur dari tabel `tb_rm`
 --
 
 CREATE TABLE `tb_rm` (
@@ -140,25 +141,27 @@ CREATE TABLE `tb_rm` (
   `no_hp` varchar(15) NOT NULL,
   `foto_rm` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(128) NOT NULL
+  `password` varchar(128) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_rm`
+-- Dumping data untuk tabel `tb_rm`
 --
 
-INSERT INTO `tb_rm` (`id_rm`, `nama_rm`, `nama_pemilik`, `alamat_rm`, `no_hp`, `foto_rm`, `username`, `password`) VALUES
-(2, 'Ayam Lepaas', 'Muhammad Roby', 'Bireuen', '081362059403', 'adminrm.jpg', 'ayamlepas', 'ayamlepas'),
-(5, 'Bakso Lampoh Arab', 'Asep', 'Bireuen', '081362059403', 'foto.jpg', 'lampoharab', 'lampoharab'),
-(6, 'Warung CM', 'Aditya Aziz Fikhri', 'Bireuen', '081362059403', 'foto1.jpg', 'warungcm', 'warungcm'),
-(7, 'Pak Ulis', 'Pak Ulis', 'Lhokseumawe', '081362059403', 'foto2.jpg', 'pakulis', 'pakulis'),
-(9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh'),
-(10, 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin');
+INSERT INTO `tb_rm` (`id_rm`, `nama_rm`, `nama_pemilik`, `alamat_rm`, `no_hp`, `foto_rm`, `username`, `password`, `status`) VALUES
+(2, 'Ayam Lepaas', 'Muhammad Roby', 'Bireuen', '081362059403', 'adminrm.jpg', 'ayamlepas', 'ayamlepas', 'Diterima'),
+(5, 'Bakso Lampoh Arab', 'Asep', 'Bireuen', '081362059403', 'foto.jpg', 'lampoharab', 'lampoharab', 'Diterima'),
+(6, 'Warung CM', 'Aditya Aziz Fikhri', 'Bireuen', '081362059403', 'foto1.jpg', 'warungcm', 'warungcm', 'Diterima'),
+(7, 'Pak Ulis', 'Pak Ulis', 'Lhokseumawe', '081362059403', 'foto2.jpg', 'pakulis', 'pakulis', 'Diterima'),
+(9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh', 'Diterima'),
+(10, 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'Diterima'),
+(18, 'Warung Tekwan', 'Warung Tekwan', 'Warung Tekwan', '0812', '90085380_216000479602771_6165135875043753984_o1.jpg', 'warungtekwan', 'warungtekwan', 'Menunggu');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_useradmin`
+-- Struktur dari tabel `tb_useradmin`
 --
 
 CREATE TABLE `tb_useradmin` (
@@ -168,7 +171,7 @@ CREATE TABLE `tb_useradmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_useradmin`
+-- Dumping data untuk tabel `tb_useradmin`
 --
 
 INSERT INTO `tb_useradmin` (`id_admin`, `username`, `password`) VALUES
@@ -180,77 +183,77 @@ INSERT INTO `tb_useradmin` (`id_admin`, `username`, `password`) VALUES
 --
 
 --
--- Indexes for table `tb_konsumen`
+-- Indeks untuk tabel `tb_konsumen`
 --
 ALTER TABLE `tb_konsumen`
   ADD PRIMARY KEY (`id_konsumen`);
 
 --
--- Indexes for table `tb_meja`
+-- Indeks untuk tabel `tb_meja`
 --
 ALTER TABLE `tb_meja`
   ADD PRIMARY KEY (`id_meja`);
 
 --
--- Indexes for table `tb_menu`
+-- Indeks untuk tabel `tb_menu`
 --
 ALTER TABLE `tb_menu`
   ADD PRIMARY KEY (`id_menu`);
 
 --
--- Indexes for table `tb_reservasi`
+-- Indeks untuk tabel `tb_reservasi`
 --
 ALTER TABLE `tb_reservasi`
   ADD PRIMARY KEY (`id_reservasi`);
 
 --
--- Indexes for table `tb_rm`
+-- Indeks untuk tabel `tb_rm`
 --
 ALTER TABLE `tb_rm`
   ADD PRIMARY KEY (`id_rm`);
 
 --
--- Indexes for table `tb_useradmin`
+-- Indeks untuk tabel `tb_useradmin`
 --
 ALTER TABLE `tb_useradmin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_konsumen`
+-- AUTO_INCREMENT untuk tabel `tb_konsumen`
 --
 ALTER TABLE `tb_konsumen`
   MODIFY `id_konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tb_meja`
+-- AUTO_INCREMENT untuk tabel `tb_meja`
 --
 ALTER TABLE `tb_meja`
-  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tb_menu`
+-- AUTO_INCREMENT untuk tabel `tb_menu`
 --
 ALTER TABLE `tb_menu`
   MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_reservasi`
+-- AUTO_INCREMENT untuk tabel `tb_reservasi`
 --
 ALTER TABLE `tb_reservasi`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_rm`
+-- AUTO_INCREMENT untuk tabel `tb_rm`
 --
 ALTER TABLE `tb_rm`
-  MODIFY `id_rm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_rm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `tb_useradmin`
+-- AUTO_INCREMENT untuk tabel `tb_useradmin`
 --
 ALTER TABLE `tb_useradmin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;

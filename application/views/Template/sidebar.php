@@ -42,6 +42,14 @@
             </a>
           </li>
           <li class="nav-item ">
+            <a href="<?=base_url('dashboard/datarumahmakanapproval');?>" class="nav-link">
+              <i class="nav-icon fa fa-check"></i>
+              <p>
+                Approval Rumah Makan
+              </p>
+            </a>
+          </li>
+          <li class="nav-item ">
             <a href="<?=base_url('dashboard/datameja');?>" class="nav-link">
               <i class="nav-icon fa fa-table"></i>
               <p>

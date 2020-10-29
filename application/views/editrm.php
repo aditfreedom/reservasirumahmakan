@@ -53,6 +53,16 @@
         <label for="">Password</label>
         <input type="text" name="password" class="form-control" value="<?php echo $data->password;?>">
         </div>
+        <div class="form-group">
+        <label for="">Status</label>
+        <select class="form-control form-control" name="status" >
+        <option disabled selected hidden><?php echo $data->status;?></option>
+          <option>Menunggu</option>
+          <option>Diterima</option>
+          <option>Ditolak</option>
+          <option>Suspend</option>
+        </select>
+        </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
       <br>

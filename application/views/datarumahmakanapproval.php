@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">DATA RUMAH MAKAN</h1>
+            <h1 class="m-0 text-dark">APPROVAL RUMAH MAKAN</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -18,9 +18,7 @@
     <!-- /.content-header -->
     <div class="content">
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    <i class="fa fa-plus"></i> Tambah Rumah Makan</button>
-
+   
     <table class="table table-hover" id="example">
           <thead class="text-center">
             <tr>
@@ -29,6 +27,7 @@
               <th scope="col">PEMILIK</th>
               <th scope="col">ALAMAT</th>
               <th scope="col">NO HP</th>
+              <th scope="col">STATUS</th>
               <th colspan="2" scope="col" >AKSI</th>
             </tr>
           </thead>
@@ -41,6 +40,7 @@
 			      <td><?php echo $datarm->nama_pemilik ;?></td>
                   <td><?php echo $datarm->alamat_rm;?></td>
                   <td><?php echo $datarm->no_hp ;?></td>
+                  <td><?php echo $datarm->status ;?></td>
                   <td onclick="javascript: return confirm('Yakin Ingin Menghapus?')"><?php echo anchor('dashboard/hapusrm/'.$datarm->id_rm,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
                   <td><?php echo anchor('dashboard/editrm/'.$datarm->id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
 		</tr>

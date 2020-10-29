@@ -12,7 +12,11 @@ class M_reservasirumahmakan extends CI_Model{
 
 
     public function tampil_data_datarumahmakan(){
-        return $this->db->query("SELECT * FROM tb_rm WHERE NOT nama_rm='admin'");
+        return $this->db->query("SELECT * FROM tb_rm WHERE status='Diterima' AND NOT nama_rm='admin'");
+     }
+
+     public function tampil_data_datarumahmakanapproval(){
+        return $this->db->query("SELECT * FROM tb_rm WHERE status='Menunggu' OR status='Ditolak' OR status='Suspend'AND NOT nama_rm='admin'");
      }
 
      public function tampil_data_datameja(){
@@ -157,6 +161,11 @@ public function editreservasirumahmakan($id)
             }
 
  public function inputrm($data)
+ {
+     $this->db->insert('tb_rm', $data);
+ }
+
+ public function inputrm2($data)
  {
      $this->db->insert('tb_rm', $data);
  }
