@@ -6,6 +6,10 @@ class M_reservasirumahmakan extends CI_Model{
         return $this->db->get_where('tb_rm',$where);
     }
 
+    function cek_login_android($where){
+        return $this->db->get_where('tb_konsumen',$where);
+    }
+
     function cek_loginrumahmakan($where){
         return $this->db->get_where('tb_rm',$where);
     }

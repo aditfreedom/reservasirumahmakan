@@ -1,16 +1,16 @@
 <?php
 
-class Home extends CI_Controller{
+class Home_android extends CI_Controller{
     function __construct(){
         parent::__construct();
         
     }
         public function index(){
             $this->load->model('M_reservasirumahmakan');
-            $this->load->view('login');
+            $this->load->view('loginandroid');
         }
 
-        public function tambahrm(){
+        public function tambahpengguna(){
             $nama_rm            = $this->input->post('nama_rm');
             $nama_pemilik       = $this->input->post('nama_pemilik');
             $alamat_rm          = $this->input->post('alamat_rm');
@@ -66,44 +66,32 @@ class Home extends CI_Controller{
 
        if($this->form_validation->run() != FALSE){
             $where = array(
-                'username' => $username,
+                'no_hp' => $username,
                 'password' => $password,
             );
 
-            $ceklogin = $this->M_reservasirumahmakan->cek_login($where)->num_rows();
-            $cekloginid = $this->M_reservasirumahmakan->cek_login($where)->result();
+            $ceklogin = $this->M_reservasirumahmakan->cek_login_android($where)->num_rows();
+            $cekloginid = $this->M_reservasirumahmakan->cek_login_android($where)->result();
             if ($ceklogin > 0) {
                 foreach ($cekloginid as $cek) {
-                    $id_rm = $cek->id_rm;
-                    $username = $cek->username;
+                    $id_konsumen = $cek->id_konsumen;
+                    $nama_konsumen = $cek->nama_konsumen;
+                    $no_hp = $cek->no_hp;
                     $password = $cek->password;
-                    $status = $cek->status;
                     $nama_rm = $cek->nama_rm;}
 
                     
                     $sess_data =  array(
-                        'username' => $username,
-                        'password' => $password,
-                        'id_rm' => $id_rm,
+                        'id_konsumen' => $id_konsumen,
+                        'nama_konsumen' => $nama_konsumen,
+                        'no_hp' => $no_hp,
                         'nama_rm' => $nama_rm,
-                        'status' => $status,
+                        'password' => $password,
                         'login' => 'Berhasil'              
                 );
 
                 $this->session->set_userdata($sess_data); 
-                if ($sess_data['username']=="admin"){
-                    redirect(base_url('dashboard')); 
-                }elseif (($sess_data['username']!="admin")&&($sess_data['status']=="Diterima")){
-                    redirect(base_url('dashboardrumahmakan')); 
-                }elseif($sess_data['status']=="Suspend"){
-                    $this->load->view('suspend');
-                }elseif($sess_data['status']=="Ditolak"){
-                    $this->load->view('ditolak');
-                }
-                else{
-                    $this->load->view('status');
-                }
-                
+                    redirect(base_url('dashboardandroid')); 
             }else{
                 $this->load->view('error');
             }
@@ -114,8 +102,8 @@ class Home extends CI_Controller{
        }
     }
 
-    public function registrasi(){
-        $this->load->view('registrasi');
+    public function registrasi_android(){
+        $this->load->view('registrasi_android');
     }
 
     public function logout(){

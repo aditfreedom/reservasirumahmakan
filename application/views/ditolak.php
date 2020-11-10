@@ -1,6 +1,6 @@
 <script type="text/javascript">
 function jsFunction(){
-alert('Silahkan Menghubungi Administrator (0823-6010-3910) Untuk Approval');
+alert('Pendaftaran Ditolak, Silahkan Mendaftarkan Akun Dengan Benar!');
 window.location.href = ".";
 }
 </script>
