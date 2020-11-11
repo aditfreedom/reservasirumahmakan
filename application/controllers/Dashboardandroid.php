@@ -11,16 +11,8 @@ class Dashboardandroid extends CI_Controller{
 
     public function index(){
             $sess_data = $this->session->userdata();
-            $data['tb_rm'] = $this->M_reservasirumahmakan->hitung_data_all('tb_rm');
-            $data['tb_meja'] = $this->M_reservasirumahmakan->hitung_data_all('tb_meja');
-            $data['tb_menu'] = $this->M_reservasirumahmakan->hitung_data_all('tb_menu');
-            $data['tb_konsumen'] = $this->M_reservasirumahmakan->hitung_data_all('tb_konsumen');
-            $data['tb_reservasi'] = $this->M_reservasirumahmakan->hitung_data_all('tb_reservasi');
-            $this->load->view('template/header');
-            $this->load->view('template/sidebar', $sess_data);
-            $this->load->view('home',$data);
-            $this->load->view('template/footer');
-
+            // $this->load->view('template/sidebar', $sess_data);
+            $this->load->view('homeandroid',$sess_data);
      }
 
      public function datarumahmakan(){
