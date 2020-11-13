@@ -1,0 +1,24 @@
+.jumbotron{
+    background-image: url('bg_login.jpg');
+    background-size: cover;
+    height: 250px;
+}
+
+
+.fixed-bottom{
+    height: 50px;
+    background: #fff7f7;
+    font-size: 20px;
+}
+
+
+body{
+    background-image: url('bgandroi.jpg');
+    background-size: cover;
+}
+
+.position-sticky{
+    height: 40px;
+    background: #fff7f7;
+    color: #fff7f7;
+}

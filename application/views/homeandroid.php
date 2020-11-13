@@ -9,37 +9,62 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <title>APLIKASI RESERVASI RUMAH MAKAN</title>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/styleandroid.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   </head>
-  <body  style="background-image: url(<?php echo base_url('bg_andro.jpg');?>);">
+  <body>
 
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+<div class="jumbotron mb-0" >
 </div>
-<div class="container bg-info text-light text-center">
-  <div class="row">
+<div class="position-sticky" style="margin-bottom:50px;">.</div>
+
+<div class="container text-light text-center">
+  <div class="row" style="margin-bottom:30px;">
     <div class="col">
-      RESERVASI
+    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">RESERVASI</a>
     </div>
     <div class="col">
-      STATUS PEMESANAN
+    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">STATUS PEMESANAN</a>
     </div>  
   </div>
-
   <div class="row">
     <div class="col">
-      RIWAYAT RESERVASI
+    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">RIWAYAT RESERVASI</a>
     </div>
     <div class="col">
-      TENTANG APLIKASI
+    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">TENTANG APLIKASI</a>
     </div>  
   </div>
 </div>
 
-<div class="fixed-bottom bg-info text-center text-light" height="200px">...</div>
+<div class="fixed-bottom text-center text-light">
+<div class="row">
+    <div class="col">
+    <a class="btn font-weight-bold" href="#" role="button" style="line-height:40px;"><i class="fa fa-home"></i></a>
+    </div>
+    <div class="col">
+    <a class="btn font-weight-bold" href="#" role="button" style="line-height:40px;"><i class="fa fa-sign-out-alt"></i></a>
+    </div>  
+  </div>
+</div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
