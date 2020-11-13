@@ -4,7 +4,7 @@ class Dashboardandroid extends CI_Controller{
     function __construct(){
         parent::__construct();
 		if (empty($this->session->userdata('login'))) {
-			redirect(base_url());
+			redirect(base_url('home_android'));
 		}
         
     }
@@ -25,6 +25,12 @@ class Dashboardandroid extends CI_Controller{
 
  }
 
+ public function reservasiandroid(){
+    $data['tb_rm'] = $this->M_reservasirumahmakan->tampil_data_datarumahmakan()->result();
+    $sess_data = $this->session->userdata();
+    $this->load->view('reservasiandroid',$data,$sess_data);
+}
+
  public function datarumahmakanapproval(){
     $data['tb_rm'] = $this->M_reservasirumahmakan->tampil_data_datarumahmakanapproval()->result();
     $sess_data = $this->session->userdata();
@@ -43,6 +49,16 @@ class Dashboardandroid extends CI_Controller{
     $this->load->view('datamenu',$data);
     $this->load->view('template/footer');
 }
+
+public function ambilmenurm($id){
+    $sess_data = $this->session->userdata();
+    $id =    array ('id_rm' => $id);
+    $data['tb_menu'] = $this->M_reservasirumahmakan->ambil_data_datamenurumahmakan($id,'tb_menu')->result();
+    $this->load->view('ambil_menu',$data,$sess_data);
+
+
+}
+
 
 public function editrm($id){
     $sess_data = $this->session->userdata();
@@ -74,6 +90,30 @@ public function editriwayatreservasi($id){
   $this->load->view('template/footer');
 }
 
+public function prosesreservasi($id){
+    $sess_data = $this->session->userdata();
+    $id =    array ('id_menu' => $id);
+    $data['datamenu'] = $this->M_reservasirumahmakan->editmenurumahmakan($id,'tb_menu')->result();
+    $this->load->view('prosesreservasiheader',$data);
+    $this->load->view('prosesreservasiheader1',$sess_data);
+    $this->load->view('prosesreservasifooter',$data);
+    $idrm =  5;
+    $data1['datamenu'] = $this->M_reservasirumahmakan->ambilmejaready($idrm,'tb_meja')->result();
+    $this->load->view('prosesreservasifootermeja',$data1);
+    $this->load->view('prosesreservasifooter2',$data);
+
+}
+
+
+public function editmenu($id){
+    $sess_data = $this->session->userdata();
+    $id =    array ('id_menu' => $id);
+    $data['datamenu'] = $this->M_reservasirumahmakan->editmenurumahmakan($id,'tb_menu')->result();
+    $this->load->view('template/header');
+  $this->load->view('template/sidebarrumahmakan',$sess_data);
+  $this->load->view('editmenurumahmakan',$data);
+  $this->load->view('template/footer');
+}
 
 public function editmeja($id){
     $sess_data = $this->session->userdata();
@@ -328,47 +368,23 @@ public function updaterm(){
     redirect(base_url('dashboard/datarumahmakan'));
 }
 
-public function tambahrm(){
-    $nama_rm            = $this->input->post('nama_rm');
-    $nama_pemilik       = $this->input->post('nama_pemilik');
-    $alamat_rm          = $this->input->post('alamat_rm');
-    $no_hp              = $this->input->post('no_hp');
-    $foto_rm            = $_FILES['foto_rm'];
-    $username           = $this->input->post('username');
-    $password           = $this->input->post('password');
-    $status             = $this->input->post('status');
+public function tambahpengguna(){
+    $nama_lengkap           = $this->input->post('nama_lengkap');
+    $no_hp                  = $this->input->post('no_hp');
+    $password               = $this->input->post('password');
 
 
 
-        $config['upload_path']          = 'asset/foto/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 10000;
-        $config['max_width']            = 10000;
-        $config['max_height']           = 10000;
-
-        $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-         
-        if (! $this->upload->do_upload('foto_rm')) {
-            $this->load->view('errorupload');
-        }else{
-            $foto_rm=$this->upload->data('file_name');
-        }
-
-    
+        
     $data = array(
-        'nama_rm' => $nama_rm,
-        'nama_pemilik' => $nama_pemilik,
-        'alamat_rm' => $alamat_rm,
+        'nama_konsumen' => $nama_lengkap,
         'no_hp' => $no_hp,
-        'foto_rm' =>$foto_rm,
-        'username' => $username,
-        'password' => $password,
-        'status' => $status
+        'password' => $password
     );
 
-    $this->M_reservasirumahmakan->inputrm($data,'tb_rm');
-    redirect(base_url('dashboard/datarumahmakan'));
+    $this->M_reservasirumahmakan->inputpengguna($data,'tb_konsumen');
+    $this->load->view('terimakasih');
+    $this->load->view('loginandroid');
 
 }
 
@@ -386,7 +402,7 @@ public function hapusrekapmasuk($id){
 
 public function logout(){
     $this->session->sess_destroy();
-    redirect(base_url());    
+    redirect(base_url('home_android'));    
 }
 
      

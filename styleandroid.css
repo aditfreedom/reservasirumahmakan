@@ -7,12 +7,12 @@
 
 .fixed-bottom{
     height: 50px;
-    background: #fff7f7;
+    background: #ff8a04;
     font-size: 20px;
 }
 
 
-body{
+.bodyhome{
     background-image: url('bgandroi.jpg');
     background-size: cover;
 }
@@ -22,3 +22,12 @@ body{
     background: #fff7f7;
     color: #fff7f7;
 }
+
+.nav-rm{
+    height: 60px;
+    line-height: 50px;
+    background: #ff8a04;
+    color: #ffffff;
+    font-size: 20px;
+}
+

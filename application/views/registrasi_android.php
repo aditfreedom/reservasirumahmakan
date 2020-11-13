@@ -21,8 +21,8 @@
 </div>
 
     <div class="container">
-      <?php echo form_open_multipart('home/tambahrm');?>
-        <div class="form-group">
+        <form action="<?php echo base_url()?>dashboardandroid/tambahpengguna" method="post">
+          <div class="form-group">
         <label for="">Nama Lengkap</label>
         <input type="text" name="nama_lengkap" class="form-control">
         </div>

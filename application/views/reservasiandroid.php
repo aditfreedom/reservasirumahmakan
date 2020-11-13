@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>APLIKASI RESERVASI RUMAH MAKAN</title>
+    <title>PILIH RUMAH MAKAN</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/styleandroid.css">
     <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -30,41 +30,37 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   </head>
-  <body class="bodyhome">
+  <body>
 
-<div class="jumbotron mb-0" >
-</div>
-<div class="position-sticky" style="margin-bottom:50px;">.</div>
-
-<div class="container text-light text-center">
-  <div class="row" style="margin-bottom:30px;">
-    <div class="col">
-    <a class="btn btn-primary font-weight-bold" href="<?php echo base_url()?>dashboardandroid/reservasiandroid" role="button" style="width:200px;height:80px;line-height:60px;">RESERVASI</a>
-    </div>
-    <div class="col">
-    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">STATUS PEMESANAN</a>
-    </div>  
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:10px;">
+  <a class="navbar-brand" href="#">Navbar</a>
   </div>
+</nav>
+<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">PILIHAN RUMAH MAKAN</div>
+
+<?php $i = 1;   
+  foreach ($tb_rm as $datarm) : ?>
   <div class="row">
     <div class="col">
-    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">RIWAYAT RESERVASI</a>
+    <a class="btn-rm btn text-dark" href="<?php echo base_url()?>dashboardandroid/ambilmenurm/<?php echo $datarm->id_rm;?>" role="button" style="width:100%;height:120px;line-height:20px;margin-bottom:10px;text-align: left !important;">
+    <table>
+    <tr>
+    <td valign="top" rowspan="5"><img width="100px" height="100px" src="<?php echo base_url();?>asset/foto/<?php echo $datarm->foto_rm;?>"></td>
+    </tr>
+    <tr><td valign="top" style="text-transform:uppercase;padding-left:5px; font-weight:bold;font-size:20px;"> <?php echo $datarm->nama_rm;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "><a class="btn-rm btn-info text-light  " href="#" role="button" style="width:60px;">MITRA</a></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "> <?php echo $datarm->alamat_rm;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "> <?php echo $datarm->nama_pemilik;?> | <?php echo $datarm->no_hp;?></td></tr> 
+    </table>
+    <hr>
+    </a>
     </div>
-    <div class="col">
-    <a class="btn btn-primary font-weight-bold" href="#" role="button" style="width:200px;height:80px;line-height:60px;">TENTANG APLIKASI</a>
-    </div>  
-  </div>
-</div>
+  </div>  
 
-<div class="fixed-bottom text-center text-light">
-<div class="row">
-    <div class="col">
-    <a class="btn font-weight-bold text-light" href="#" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-user"></i></a>
-    </div>
-    <div class="col">
-    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/logout" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-sign-out-alt"></i></a>
-    </div>  
-  </div>
-</div>
+		<?php $i++; ?>
+	<?php endforeach ;?>
+
+  
 
     <!-- Optional JavaScript; choose one of the two! -->
 
