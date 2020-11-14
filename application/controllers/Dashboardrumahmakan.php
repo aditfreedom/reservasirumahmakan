@@ -185,6 +185,7 @@ public function updatereservasi(){
     $total_harga    = $this->input->post('total_harga');
     $tanggal_reservasi    = $this->input->post('tanggal_reservasi');
     $waktu_reservasi    = $this->input->post('waktu_reservasi');
+    $keterangan_tambahan    = $this->input->post('keterangan_tambahan');
     $status_reservasi    = $this->input->post('status_reservasi');
 
     $data = array(
@@ -197,6 +198,7 @@ public function updatereservasi(){
         'total_harga' => $total_harga,
         'tanggal_reservasi' => $tanggal_reservasi,
         'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
         'status_reservasi' => $status_reservasi
     );
 

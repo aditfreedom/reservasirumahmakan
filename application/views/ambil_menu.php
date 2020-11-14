@@ -42,20 +42,24 @@
   foreach ($tb_menu as $datarm) : ?>
   <div class="row">
     <div class="col">
-    <a class="btn-rm btn text-dark" href="<?php echo base_url()?>dashboardandroid/prosesreservasi/<?php echo $datarm->id_menu;?>" role="button" style="width:100%;height:120px;margin-bottom:10px;text-align: left !important;">
-    <table>
+    <a class="btn-rm btn text-dark" href="<?php echo base_url()?>dashboardandroid/prosesreservasi?mn=<?=$datarm->id_menu;?>&rm=<?=$datarm->id_rm;?>" role="button" style="width:100%;height:120px;margin-bottom:10px;text-align: left !important;">
+    <table >
     <tr>
     <td valign="top" rowspan="4"><img width="100px" height="100px" src="<?php echo base_url();?>asset/fotomenu/<?php echo $datarm->foto;?>"></td>
     </tr>
     <tr><td valign="top" style="text-transform:uppercase;padding-left:5px; font-weight:bold;font-size:20px;"> <?php echo $datarm->nama_menu;?></td></tr> 
     <tr><td valign="top" style="padding-left:5px; "><a class="btn-rm btn-danger text-light  " href="#" role="button" style="width:60px;">Rp. <?php echo $datarm->harga?></a></td></tr> 
-    <tr><td valign="top" style="padding-left:5px; "> <?php echo $datarm->ket_menu;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "> <?php echo $datarm->ket_menu;?>
+    <div class="form-group" >
+    <input type="hidden" name="id_rm" class="form-control" value="<?php echo $datarm->id_rm;?>">
+        </div>
+    </td></tr> 
+
     </table>
     <hr>
     </a>
     </div>
   </div>  
-
 		<?php $i++; ?>
 	<?php endforeach ;?>
 

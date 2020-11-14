@@ -180,6 +180,11 @@ public function editreservasirumahmakan($id)
      $this->db->insert('tb_rm', $data);
  }
 
+ public function tambahreservasi($data)
+ {
+     $this->db->insert('tb_reservasi', $data);
+ }
+
  public function inputpengguna($data)
  {
      $this->db->insert('tb_konsumen', $data);

@@ -90,20 +90,90 @@ public function editriwayatreservasi($id){
   $this->load->view('template/footer');
 }
 
-public function prosesreservasi($id){
+public function prosesreservasi(){
     $sess_data = $this->session->userdata();
-    $id =    array ('id_menu' => $id);
-    $data['datamenu'] = $this->M_reservasirumahmakan->editmenurumahmakan($id,'tb_menu')->result();
+    $id =  $this->input->get('mn');
+    $where1 = ['id_menu'=>$id];
+    $data['datamenu'] = $this->M_reservasirumahmakan->editmenurumahmakan($where1,'tb_menu')->result();
     $this->load->view('prosesreservasiheader',$data);
     $this->load->view('prosesreservasiheader1',$sess_data);
     $this->load->view('prosesreservasifooter',$data);
-    $idrm =  5;
+    $idrm = $this->input->get('rm');
     $data1['datamenu'] = $this->M_reservasirumahmakan->ambilmejaready($idrm,'tb_meja')->result();
     $this->load->view('prosesreservasifootermeja',$data1);
     $this->load->view('prosesreservasifooter2',$data);
-
 }
 
+public function konfirmasireservasi(){
+    $sess_data = $this->session->userdata();
+    $nama_konsumen       = $this->input->post('nama_konsumen');
+    $no_hp               = $this->input->post('no_hp');
+    $nama_rm             = $this->input->post('nama_rm');
+    $id_rm               = $this->input->post('id_rm');
+    $no_meja             = $this->input->post('no_meja');
+    $nama_menu           = $this->input->post('nama_menu');
+    $jumlah_pemesanan    = $this->input->post('jumlah_pemesanan');
+    $harga               = $this->input->post('harga');
+    $total_harga         =  (int)$jumlah_pemesanan*(int)$harga;
+    $tanggal_reservasi   = $this->input->post('tanggal_reservasi');
+    $waktu_reservasi     = $this->input->post('waktu_reservasi');
+    $keterangan_tambahan = $this->input->post('keterangan_tambahan');
+    $status_reservasi    = "Menunggu";
+
+    $data = array(
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'nama_rm' => $nama_rm,
+        'id_rm' => $id_rm,
+        'no_meja' => $no_meja,
+        'nama_menu' => $nama_menu,
+        'jumlah_pemesanan' => $jumlah_pemesanan,
+        'harga' => $harga,
+        'total_harga' => $total_harga,
+        'tanggal_reservasi' => $tanggal_reservasi,
+        'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
+        'status_reservasi' => $status_reservasi
+    );
+
+    $this->load->view('konfirmasiheader',$data);
+}
+
+public function lanjutreservasi(){
+    $sess_data = $this->session->userdata();
+    $nama_konsumen       = $this->input->post('nama_konsumen');
+    $no_hp               = $this->input->post('no_hp');
+    $nama_rm             = $this->input->post('nama_rm');
+    $id_rm               = $this->input->post('id_rm');
+    $no_meja             = $this->input->post('no_meja');
+    $nama_menu           = $this->input->post('nama_menu');
+    $jumlah_pemesanan    = $this->input->post('jumlah_pemesanan');
+    $harga               = $this->input->post('harga');
+    $total_harga         =  (int)$jumlah_pemesanan*(int)$harga;
+    $tanggal_reservasi   = $this->input->post('tanggal_reservasi');
+    $waktu_reservasi     = $this->input->post('waktu_reservasi');
+    $keterangan_tambahan = $this->input->post('keterangan_tambahan');
+    $status_reservasi    = "Menunggu";
+
+    $data = array(
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'nama_rm' => $nama_rm,
+        'id_rm' => $id_rm,
+        'no_meja' => $no_meja,
+        'nama_menu' => $nama_menu,
+        'jumlah_pemesanan' => $jumlah_pemesanan,
+        'total_harga' => $total_harga,
+        'tanggal_reservasi' => $tanggal_reservasi,
+        'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
+        'status_reservasi' => $status_reservasi
+    );
+
+    $this->M_reservasirumahmakan->tambahreservasi($data,'tb_reservasi');
+    $this->load->view('reservasisukses');
+    $this->load->view('homeandroid');
+}
 
 public function editmenu($id){
     $sess_data = $this->session->userdata();

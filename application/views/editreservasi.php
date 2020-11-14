@@ -57,6 +57,10 @@
         <input type="text" name="waktu_reservasi" class="form-control" value="<?php echo $status->waktu_reservasi;?>"readonly>
         </div>
         <div class="form-group">
+        <label for="">Keterangan Tambahan</label>
+        <textarea  name="keterangan_tambahan" class="form-control"><?php echo $status->keterangan_tambahan;?></textarea>
+        </div>
+        <div class="form-group">
         <label for="">Status Reservasi</label>
         <select class="form-control form-control" name="status_reservasi">
           <option disabled selected hidden><?php echo $status->status_reservasi;?></option>
