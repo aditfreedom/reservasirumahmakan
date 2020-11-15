@@ -30,27 +30,38 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   </head>
-  <body style="background-image: url('../bgandroi.jpg');">
+  <body >
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:10px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:0px;">
   <a class="navbar-brand" href="#">Navbar</a>
-  </div>
 </nav>
-<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">UBAH PROFIL DIRI</div>
-<br><br>
-<div class="container text-center">
-<?php foreach ($tb_konsumen as $konsumen) : ?>
-		<form method="post" action="<?php echo base_url().'dashboard/updatekonsumen'; ?>">
-        <div class="form-group">
-        <input type="text" name="id_konsumen" class="form-control" value="<?php echo $konsumen->id_konsumen;?>">
+
+<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:0px;">UBAH PROFIL DIRI</div>
+<br>
+
+<div class="container">
+		<form method="post" action="<?php echo base_url().'dashboardandroid/updatekonsumen'; ?>">
+        <div class="form-group" hidden>
+        <input type="hidden" name="id_konsumen" class="form-control" value="<?php echo $id_konsumen;?>">
         </div>
-        
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <div class="form-group" hidden>
+        <input type="hidden" name="nama_konsumen" class="form-control" value="<?php echo $nama_konsumen;?>">
+        </div>
+        <label for="">NO HP BARU</label>
+        <div class="form-group">
+        <input type="text" name="no_hp" class="form-control" value="<?php echo $no_hp;?>">
+        </div>
+        <div class="form-group">
+        <label for="">PASSWORD BARU</label>
+        <input type="password" name="password" class="form-control" value="<?php echo $password;?>">
+        </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="width:100%;"><b>Ubah Data</b></button>
       </div>
         </form>
-	<?php endforeach ;?>
+  
+  </div>
 
-</div>
 
 
   

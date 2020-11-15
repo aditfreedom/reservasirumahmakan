@@ -88,9 +88,9 @@ public function editreservasirumahmakan($id)
     return $this->db->get_where('tb_reservasi',$id);  
 }
 
-public function ambil_datapengguna($id)
+public function ambil_datapengguna($where)
 {
-    return $this->db->get_where('tb_konsumen',$id);  
+    return $this->db->get_where('tb_konsumen',$where);  
 }
 
 
@@ -139,6 +139,11 @@ public function ambil_datapengguna($id)
    public function updateuserrumahmakan($where,$data)
    {   $this->db->where($where);
        $this->db->update('tb_rm',$data); 
+   }
+
+   public function updatekonsumen($where,$data)
+   {   $this->db->where($where);
+       $this->db->update('tb_konsumen',$data); 
    }
 
    public function updatereservasirumahmakan($where,$data)

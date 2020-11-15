@@ -80,9 +80,7 @@ public function tentang(){
 
 public function editprofilandroid(){
     $sess_data = $this->session->userdata();
-    $where = $this->session->userdata('id_konsumen');
-    $data['tb_konsumen'] = $this->M_reservasirumahmakan->ambil_datapengguna($where)->result();
-    $this->load->view('editprofilandroid');
+    $this->load->view('editprofilandroid',$sess_data);
 }
 
 
@@ -237,7 +235,27 @@ public function edituser($id){
   $this->load->view('template/footer');
 }
 
+public function updatekonsumen(){
+    $id_konsumen       = $this->input->post('id_konsumen');
+    $nama_konsumen       = $this->input->post('nama_konsumen');
+    $no_hp        = $this->input->post('no_hp');
+    $password  = $this->input->post('password');
+   
+    $data = array(
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'password' => $password
+    );
 
+    $where = array(
+        'id_konsumen' => $id_konsumen
+    );
+
+    $this->M_reservasirumahmakan->updatekonsumen($where,$data,'tb_konsumen');
+    $this->session->set_userdata($data); 
+    $this->load->view('sukses');
+    $this->load->view('homeandroid');
+}
 
 public function updateriwayatreservasi(){
     $id_reservasi       = $this->input->post('id_reservasi');
