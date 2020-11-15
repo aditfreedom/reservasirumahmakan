@@ -78,14 +78,13 @@ class Home_android extends CI_Controller{
                     $nama_konsumen = $cek->nama_konsumen;
                     $no_hp = $cek->no_hp;
                     $password = $cek->password;
-                    $nama_rm = $cek->nama_rm;}
+                }
 
                     
                     $sess_data =  array(
                         'id_konsumen' => $id_konsumen,
                         'nama_konsumen' => $nama_konsumen,
                         'no_hp' => $no_hp,
-                        'nama_rm' => $nama_rm,
                         'password' => $password,
                         'login' => 'Berhasil'              
                 );

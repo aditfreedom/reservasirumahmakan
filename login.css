@@ -1,5 +1,10 @@
 .container{
-    max-width:26%;
+    width: 26%;
+    margin-top:4%;
+}
+
+.cont2{
+    width: 100%;
     margin-top:4%;
 }
 

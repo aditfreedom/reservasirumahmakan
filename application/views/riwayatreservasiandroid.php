@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    <title>APLIKASI RESERVASI RUMAH MAKAN</title>
+    <title>STATUS RESERVASI</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/styleandroid.css">
     <link rel="stylesheet" href="<?php echo base_url()?>asset/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
@@ -30,63 +30,39 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   </head>
-  <body class="bodyhome">
+  <body>
 
-<!-- <div class="jumbotron mb-0" >
-</div> -->
-
-<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-interval="5000">
-    <img src="<?php echo base_url()?>/bg_login.jpg" class="d-cover w-100" alt="...">
-    </div>
-    <div class="carousel-item" data-interval="5000">
-    <img src="<?php echo base_url()?>/bg2.jpg" class="d-cover w-100" alt="...">
-    </div>
-    <div class="carousel-item" data-interval="5000">
-    <img src="<?php echo base_url()?>/bg3.jpg" class="d-cover w-100" alt="...">
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom:10px;">
+  <a class="navbar-brand" href="#">Navbar</a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<div class="position-sticky bg-gradient-light shadow" style="margin-bottom:10px;">.</div>
-<h1 class="font-weight-bold text-center">MENU UTAMA</h1>
-<div class="container text-light text-center">
-  <div class="row" style="margin-bottom:30px;">
-  <table  class="table table-borderless" style="margin:auto;   width: 100% !important; ">
-<tr>
-  <td>
-  <a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/reservasiandroid" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-utensils"></i><p style="font-size:3vw;">RESERVASI <br>RUMAH MAKAN</p></a>
-  </td>
-  <td>
-  <a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/statusreservasiandroid" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-info-circle"></i><p style="font-size:3vw;">STATUS PEMESANAN</p></a>
-  </td>
-</tr>
-<td>
-<a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/riwayatreservasiandroid" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-history"></i><p style="font-size:3vw;">RIWAYAT RESERVASI</p></a>
-  </td>
-  <td>
-  <a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/tentang" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-user"></i><p style="font-size:3vw;">TENTANG APLIKASI</p></a>
-  </td>
-</tr>
+</nav>
+<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">RIWAYAT RESERVASI</div>
 
-<div class="fixed-bottom text-center text-light">
-<div class="row">
+
+<?php $i = 1;   
+  foreach ($tb_reservasi as $datarm) : ?>
+  <div class="row">
     <div class="col">
-    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/editprofilandroid" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-user"></i></a>
+    <a class="btn-rm btn text-dark" href="#" role="button" style="width:100%;height:150px;margin-bottom:10px;text-align: left !important;">
+    <table>
+    <tr>
+    </tr>
+    <tr><td valign="top" style="text-transform:uppercase;padding-left:5px; font-weight:bold;font-size:20px;"> <?php echo $datarm->nama_rm;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "><?php echo $datarm->tanggal_reservasi;?>/<?php echo $datarm->waktu_reservasi;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "><a class="btn-rm btn-success" href="#" role="button" style="width:60px;"><?php echo $datarm->status_reservasi?></a></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "><?php echo $datarm->nama_menu;?></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; "><b>Total (Rp. <?php echo $datarm->total_harga;?>)</b> </td></tr> 
+
+    </table>
+    <hr>
+    </a>
     </div>
-    <div class="col">
-    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/logout" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-sign-out-alt"></i></a>
-    </div>  
-  </div>
-</div>
+  </div>  
+		<?php $i++; ?>
+	<?php endforeach ;?>
+
+
+  
 
     <!-- Optional JavaScript; choose one of the two! -->
 

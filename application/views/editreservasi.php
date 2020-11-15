@@ -21,6 +21,9 @@
         <input type="hidden" name="id_reservasi" class="form-control" value="<?php echo $status->id_reservasi;?>">
         </div>
         <div class="form-group">
+        <input type="hidden" name="id_konsumen" class="form-control" value="<?php echo $status->id_konsumen;?>">
+        </div>
+        <div class="form-group">
         <label for="">Nama Konsumen</label>
         <input type="text" name="nama_konsumen" class="form-control" value="<?php echo $status->nama_konsumen;?>" readonly>
         </div>

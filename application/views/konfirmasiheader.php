@@ -41,6 +41,9 @@
   <div class="container">
     
   <form action="<?php echo base_url()?>dashboardandroid/lanjutreservasi" method="post">
+  <div class="form-group" hidden>
+        <input type="text" name="id_konsumen" class="form-control" value="<?php echo $id_konsumen;?>">
+        </div>
     <div class="form-group"hidden>
         <input type="text" name="nama_konsumen" class="form-control" value="<?php echo $nama_konsumen;?>">
         </div>

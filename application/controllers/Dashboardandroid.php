@@ -59,6 +59,32 @@ public function ambilmenurm($id){
 
 }
 
+public function statusreservasiandroid(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_konsumen');
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->tampil_data_datareservasirumahmakanandroid($where)->result();
+    $this->load->view('statusreservasiandroid',$data);
+}
+
+public function riwayatreservasiandroid(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_konsumen');
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->tampil_data_datariwayatreservasirumahmakanandroid($where)->result();
+    $this->load->view('riwayatreservasiandroid',$data);
+}
+
+public function tentang(){
+    $this->load->view('tentang');
+}
+
+
+public function editprofilandroid(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_konsumen');
+    $data['tb_konsumen'] = $this->M_reservasirumahmakan->ambil_datapengguna($where)->result();
+    $this->load->view('editprofilandroid');
+}
+
 
 public function editrm($id){
     $sess_data = $this->session->userdata();
@@ -106,6 +132,7 @@ public function prosesreservasi(){
 
 public function konfirmasireservasi(){
     $sess_data = $this->session->userdata();
+    $id_konsumen       = $this->input->post('id_konsumen');
     $nama_konsumen       = $this->input->post('nama_konsumen');
     $no_hp               = $this->input->post('no_hp');
     $nama_rm             = $this->input->post('nama_rm');
@@ -121,6 +148,7 @@ public function konfirmasireservasi(){
     $status_reservasi    = "Menunggu";
 
     $data = array(
+        'id_konsumen' => $id_konsumen,
         'nama_konsumen' => $nama_konsumen,
         'no_hp' => $no_hp,
         'nama_rm' => $nama_rm,
@@ -141,6 +169,7 @@ public function konfirmasireservasi(){
 
 public function lanjutreservasi(){
     $sess_data = $this->session->userdata();
+    $id_konsumen       = $this->input->post('id_konsumen');
     $nama_konsumen       = $this->input->post('nama_konsumen');
     $no_hp               = $this->input->post('no_hp');
     $nama_rm             = $this->input->post('nama_rm');
@@ -156,6 +185,7 @@ public function lanjutreservasi(){
     $status_reservasi    = "Menunggu";
 
     $data = array(
+        'id_konsumen' => $id_konsumen,
         'nama_konsumen' => $nama_konsumen,
         'no_hp' => $no_hp,
         'nama_rm' => $nama_rm,

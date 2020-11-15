@@ -18,8 +18,8 @@
       <div class="head font-weight-bold">
         <br><br>
   </div>
-<div class="container shadow p-3 mb-5 bg-white rounded">
-        <img class="img mx-auto d-block" src="<?php echo base_url('favicon.png');?>" width="100px"><br>
+<div class="cont2 shadow p-3 mb-5 bg-white rounded">
+        <img class="img mx-auto d-block" src="<?php echo base_url('favicon.png');?>" width="30%"><br>
         <h6 class="text-center font-weight-bold">APLIKASI RESERVASI RUMAH MAKAN<br>SILAHKAN LOGIN</h6>
         <form action="<?php echo base_url('home_android/login_aksi');?>" method="post">
             <div class="input-group mb-3">

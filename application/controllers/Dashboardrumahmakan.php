@@ -213,6 +213,7 @@ public function updatereservasi(){
 
 public function updatereservasirumahmakan(){
     $id_reservasi       = $this->input->post('id_reservasi');
+    $id_konsumen       = $this->input->post('id_konsumen');
     $nama_konsumen       = $this->input->post('nama_konsumen');
     $no_hp        = $this->input->post('no_hp');
     $nama_rm  = $this->input->post('nama_rm');
@@ -222,9 +223,12 @@ public function updatereservasirumahmakan(){
     $total_harga    = $this->input->post('total_harga');
     $tanggal_reservasi    = $this->input->post('tanggal_reservasi');
     $waktu_reservasi    = $this->input->post('waktu_reservasi');
+    $waktu_reservasi    = $this->input->post('waktu_reservasi');
+    $keterangan_tambahan    = $this->input->post('keterangan_tambahan');
     $status_reservasi    = $this->input->post('status_reservasi');
 
     $data = array(
+        'id_konsumen' => $id_konsumen,
         'nama_konsumen' => $nama_konsumen,
         'no_hp' => $no_hp,
         'nama_rm' => $nama_rm,
@@ -234,6 +238,7 @@ public function updatereservasirumahmakan(){
         'total_harga' => $total_harga,
         'tanggal_reservasi' => $tanggal_reservasi,
         'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
         'status_reservasi' => $status_reservasi
     );
 
