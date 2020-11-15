@@ -73,7 +73,7 @@ class M_reservasirumahmakan extends CI_Model{
 }
 
 public function tampil_data_datareservasirumahmakanandroid($where){
-    $query = $this->db->query("SELECT * from tb_reservasi where status_reservasi = 'Menunggu' or status_reservasi = 'Ditolak' and id_konsumen='$where'");
+    $query = $this->db->query("SELECT * from tb_reservasi where (status_reservasi = 'Menunggu' or status_reservasi = 'Ditolak') and id_konsumen='$where'");
   return $query;
 }
 
