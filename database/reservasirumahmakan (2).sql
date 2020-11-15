@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2020 pada 11.09
+-- Waktu pembuatan: 15 Nov 2020 pada 09.56
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.2.31
 
@@ -39,7 +39,8 @@ CREATE TABLE `tb_konsumen` (
 --
 
 INSERT INTO `tb_konsumen` (`id_konsumen`, `nama_konsumen`, `no_hp`, `password`) VALUES
-(1, 'Aditya Aziz Fikhri', '081362059403', '73f008c37252b9c86005ce9a4c2300be');
+(1, 'Aditya Aziz Fikhri', '081362059403', 'adit'),
+(2, '111', '111', '111');
 
 -- --------------------------------------------------------
 
@@ -104,6 +105,7 @@ INSERT INTO `tb_menu` (`id_menu`, `id_rm`, `nama_rm`, `nama_menu`, `harga`, `ket
 
 CREATE TABLE `tb_reservasi` (
   `id_reservasi` int(11) NOT NULL,
+  `id_konsumen` int(11) NOT NULL,
   `nama_konsumen` varchar(128) NOT NULL,
   `no_hp` varchar(128) NOT NULL,
   `nama_rm` varchar(128) NOT NULL,
@@ -113,7 +115,8 @@ CREATE TABLE `tb_reservasi` (
   `jumlah_pemesanan` int(3) NOT NULL,
   `total_harga` int(8) NOT NULL,
   `tanggal_reservasi` date NOT NULL,
-  `waktu_reservasi` varchar(5) NOT NULL,
+  `waktu_reservasi` varchar(10) NOT NULL,
+  `keterangan_tambahan` varchar(255) NOT NULL,
   `status_reservasi` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -121,11 +124,10 @@ CREATE TABLE `tb_reservasi` (
 -- Dumping data untuk tabel `tb_reservasi`
 --
 
-INSERT INTO `tb_reservasi` (`id_reservasi`, `nama_konsumen`, `no_hp`, `nama_rm`, `id_rm`, `no_meja`, `nama_menu`, `jumlah_pemesanan`, `total_harga`, `tanggal_reservasi`, `waktu_reservasi`, `status_reservasi`) VALUES
-(1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Diterima'),
-(2, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Diterima'),
-(3, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Menunggu'),
-(4, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 6, 1, 'Paket 02', 1, 20000, '2020-09-23', '23.00', 'Menunggu');
+INSERT INTO `tb_reservasi` (`id_reservasi`, `id_konsumen`, `nama_konsumen`, `no_hp`, `nama_rm`, `id_rm`, `no_meja`, `nama_menu`, `jumlah_pemesanan`, `total_harga`, `tanggal_reservasi`, `waktu_reservasi`, `keterangan_tambahan`, `status_reservasi`) VALUES
+(6, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 3, 75000, '2020-11-15', '12.30', '-', 'Menunggu'),
+(8, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 5, 125000, '2020-11-15', '22.30', '-', 'Ditolak'),
+(9, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 5, 125000, '2020-11-15', '22.30', '-', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,7 @@ INSERT INTO `tb_rm` (`id_rm`, `nama_rm`, `nama_pemilik`, `alamat_rm`, `no_hp`, `
 (7, 'Pak Ulis', 'Pak Ulis', 'Lhokseumawe', '081362059403', 'foto2.jpg', 'pakulis', 'pakulis', 'Diterima'),
 (9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh', 'Diterima'),
 (10, 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'Diterima'),
-(18, 'Warung Tekwan', 'Warung Tekwan', 'Warung Tekwan', '0812', '90085380_216000479602771_6165135875043753984_o1.jpg', 'warungtekwan', 'warungtekwan', 'Menunggu');
+(18, 'Warung Tekwan', 'Warung Tekwan', 'Warung Tekwan', '0812', '90085380_216000479602771_6165135875043753984_o1.jpg', 'warungtekwan', 'warungtekwan', 'Ditolak');
 
 -- --------------------------------------------------------
 
@@ -226,7 +228,7 @@ ALTER TABLE `tb_useradmin`
 -- AUTO_INCREMENT untuk tabel `tb_konsumen`
 --
 ALTER TABLE `tb_konsumen`
-  MODIFY `id_konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_meja`
@@ -244,7 +246,7 @@ ALTER TABLE `tb_menu`
 -- AUTO_INCREMENT untuk tabel `tb_reservasi`
 --
 ALTER TABLE `tb_reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_rm`
