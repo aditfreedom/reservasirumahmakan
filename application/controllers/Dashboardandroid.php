@@ -203,6 +203,10 @@ public function lanjutreservasi(){
     $this->load->view('homeandroid');
 }
 
+
+
+
+
 public function editmenu($id){
     $sess_data = $this->session->userdata();
     $id =    array ('id_menu' => $id);
@@ -484,26 +488,6 @@ public function updaterm(){
     );
     $this->M_reservasirumahmakan->updaterm($where,$data,'tb_rm');
     redirect(base_url('dashboard/datarumahmakan'));
-}
-
-public function tambahpengguna(){
-    $nama_lengkap           = $this->input->post('nama_lengkap');
-    $no_hp                  = $this->input->post('no_hp');
-    $password               = $this->input->post('password');
-
-
-
-        
-    $data = array(
-        'nama_konsumen' => $nama_lengkap,
-        'no_hp' => $no_hp,
-        'password' => $password
-    );
-
-    $this->M_reservasirumahmakan->inputpengguna($data,'tb_konsumen');
-    $this->load->view('terimakasih');
-    $this->load->view('loginandroid');
-
 }
 
 public function hapusrm($id){

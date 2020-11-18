@@ -39,6 +39,10 @@ class M_reservasirumahmakan extends CI_Model{
         return $this->db->get_where('tb_menu',$where);  
     }
 
+    public function tampil_data_datarekening($where){
+        return $this->db->query("SELECT * from tb_rekening where id_rm='$where'");
+    }
+
     public function ambilmejaready($where){
         $this->db->where('id_rm',$where);
         $this->db->where('status',"Ready");
@@ -103,6 +107,11 @@ public function ambil_datapengguna($where)
    public function editmeja($id)
    {
        return $this->db->get_where('tb_meja',$id);  
+   }
+
+   public function editrekening($id)
+   {
+       return $this->db->get_where('tb_rekening',$id);  
    }
 
    public function editmejarumahmakan($id)
@@ -202,14 +211,20 @@ public function ambil_datapengguna($where)
      $this->db->insert('tb_rm', $data);
  }
 
+ public function tambahrekening($data)
+ {
+     $this->db->insert('tb_rekening', $data);
+ }
+
+
  public function tambahreservasi($data)
  {
      $this->db->insert('tb_reservasi', $data);
  }
 
- public function inputpengguna($data)
+ public function inputpengguna1($data)
  {
-     $this->db->insert('tb_konsumen', $data);
+     $this->db->insert('tb_konsumen',$data);
  }
 
  public function inputrm2($data)

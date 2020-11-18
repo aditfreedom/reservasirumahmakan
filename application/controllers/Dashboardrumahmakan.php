@@ -52,6 +52,26 @@ public function datamenurumahmakan(){
     $this->load->view('template/footer');
 }
 
+public function datarekening(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_rm');
+    $data['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($where,'tb_rekening')->result();
+    $this->load->view('template/header');
+    $this->load->view('template/sidebarrumahmakan', $sess_data);
+    $this->load->view('datarekening',$data);
+    $this->load->view('template/footer');
+}
+
+public function editrekening(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_rm');
+    $data['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($where,'tb_rekening')->result();
+    $this->load->view('template/header');
+    $this->load->view('template/sidebarrumahmakan', $sess_data);
+    $this->load->view('editrekening',$data);
+    $this->load->view('template/footer');
+}
+
 public function editreservasi($id){
     $sess_data = $this->session->userdata();
     $id =    array ('id_reservasi' => $id);
@@ -463,10 +483,9 @@ public function updatemenurumahmakan(){
 }
 
 
-
 public function tambahrm(){
+    $nama_pemilik       = $this->input->post('nama_bank');
     $nama_rm            = $this->input->post('nama_rm');
-    $nama_pemilik       = $this->input->post('nama_pemilik');
     $alamat_rm          = $this->input->post('alamat_rm');
     $no_hp              = $this->input->post('no_hp');
     $foto_rm            = $_FILES['foto_rm'];
@@ -502,6 +521,36 @@ public function tambahrm(){
     $this->M_reservasirumahmakan->inputrm($data,'tb_rm');
     redirect(base_url('dashboard/datarumahmakan'));
 
+}
+
+
+public function tambahrekening(){
+   
+    if ($data>0) {
+            $this->load->view('rekeningerror');
+            redirect(base_url('dashboardrumahmakan/datarekening'));
+        }else{
+            $id_rm          = $this->input->post('id_rm');
+            $nama_bank      = $this->input->post('nama_bank');
+            $atas_nama      = $this->input->post('atas_nama');
+            $no_rek         = $this->input->post('no_rek');
+            
+        
+            $data = array(
+                'id_rm' => $id_rm,
+                'nama_bank' => $nama_bank,
+                'atas_nama' => $atas_nama,
+                'no_rek' => $no_rek
+                );
+        
+            $this->M_reservasirumahmakan->tambahrekening($data,'tb_rekening');
+            redirect(base_url('dashboardrumahmakan/datarekening'));       
+
+
+        }
+
+
+   
 }
 
 public function tambahmenurumahmakan(){

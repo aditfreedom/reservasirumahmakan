@@ -105,6 +105,25 @@ class Home_android extends CI_Controller{
         $this->load->view('registrasi_android');
     }
 
+    public function tambahpenggunaandroid(){
+        $nama_lengkap           = $this->input->post('nama_lengkap');
+        $no_hp                  = $this->input->post('no_hp');
+        $password               = $this->input->post('password');
+    
+    
+    
+            
+        $data = array(
+            'nama_konsumen' => $nama_lengkap,
+            'no_hp' => $no_hp,
+            'password' => $password
+        );
+            
+        $this->M_reservasirumahmakan->inputpengguna1($data,'tb_konsumen');
+        $this->load->view('terimakasih');
+        $this->load->view('loginandroid');
+    }
+
     public function logout(){
         $this->session->sess_destroy();
         redirect(base_url());    

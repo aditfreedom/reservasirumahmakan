@@ -49,6 +49,15 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item ">
+            <a href="<?=base_url('dashboardrumahmakan/datarekening');?>" class="nav-link">
+              <i class="nav-icon fa fa-money-bill-alt"></i>
+              <p>
+                Data Rekening
+              </p>
+            </a>
+          </li>
       
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
@@ -74,11 +83,12 @@
               </ul>
               </li>
           
+
           <li class="nav-item ">
             <a href="<?=base_url('dashboardrumahmakan/dataprofilpenggunarumahmakan');?>" class="nav-link">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                Profil Pengguna
+                Ubah Profil
               </p>
             </a>
           </li>
