@@ -36,15 +36,15 @@
   <a class="navbar-brand" href="#">Navbar</a>
   </div>
 </nav>
-<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">KONFIRMASI RESERVASI</div>
+<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">PROSES PEMBAYARAN</div>
 
   <div class="container">
     
-  <form action="<?php echo base_url()?>dashboardandroid/lanjutpembayaran" method="post">
+  <?php echo form_open_multipart('dashboardandroid/lanjutreservasi');?>
   <div class="form-group" hidden>
         <input type="text" name="id_konsumen" class="form-control" value="<?php echo $id_konsumen;?>">
         </div>
-    <div class="form-group"hidden>
+      <div class="form-group"hidden>
         <input type="text" name="nama_konsumen" class="form-control" value="<?php echo $nama_konsumen;?>">
         </div>
         <div class="form-group"hidden>
@@ -80,125 +80,8 @@
         <div class="form-group"hidden>
         <input type="text" name="keterangan_tambahan" class="form-control" value="<?php echo $keterangan_tambahan;?>">
         </div>
+
         <div class="form-group"hidden>
         <input type="text" name="status_reservasi" class="form-control" value="<?php echo $status_reservasi;?>">
         </div>
-
-        <table class="table table-responsive" style="margin:auto;   width: 50% !important; ">
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Nama Rumah Makan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $nama_rm;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Menu Pemesanan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $nama_menu;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">No Meja Pemesanan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for="">Meja<?php echo $no_meja;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Harga Item Pemesanan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for="">Rp. <?php echo $harga;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Jumlah Pemesanan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $jumlah_pemesanan;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Total Harga :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for="">Rp. <?php echo $total_harga;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Tanggal Reservasi :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $tanggal_reservasi;?></label>
-        </div>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Waktu Reservasi :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $waktu_reservasi;?></label>
-        </div>
-        </td>
-        </tr>
-
-        <tr>
-        <td>
-        <div class="form-group">
-        <label for="">Keterangan Tambahan :</label>
-        </div>
-        </td>
-        <td>
-        <div class="form-group">
-        <label for=""><?php echo $keterangan_tambahan;?></label>
-        </div>
-        </td>
-        </tr>
-        </table>
-        <button type="submit" style="width:100%" class="btn btn-primary"><b>Proses Pembayaran<b></button>
-
-
-        </form>
-  </div>
-  </div>
    

@@ -18,8 +18,8 @@
     <!-- /.content-header -->
     <div class="content">
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    <i class="fa fa-plus"></i> Tambah Rumah Makan</button>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <i class="fa fa-plus"></i> Tambah Rumah Makan</button> -->
 
     <table class="table table-hover" id="example">
           <thead class="text-center">
@@ -29,7 +29,7 @@
               <th scope="col">PEMILIK</th>
               <th scope="col">ALAMAT</th>
               <th scope="col">NO HP</th>
-              <th colspan="2" scope="col" >AKSI</th>
+              <th colspan="2" scope="col" >UBAH STATUS</th>
             </tr>
           </thead>
           <tbody>

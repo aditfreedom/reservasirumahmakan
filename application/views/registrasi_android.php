@@ -24,15 +24,15 @@
         <form action="<?php echo base_url()?>home_android/tambahpenggunaandroid" method="post">
           <div class="form-group">
         <label for="">Nama Lengkap</label>
-        <input type="text" name="nama_lengkap" class="form-control">
+        <input type="text" name="nama_lengkap" class="form-control" required>
         </div>
         <div class="form-group">
         <label for="">No HP</label>
-        <input type="text" name="no_hp" class="form-control">
+        <input type="text" name="no_hp" class="form-control" required>
         </div>
         <div class="form-group">
         <label for="">Password</label>
-        <input type="password" name="password" class="form-control" >
+        <input type="password" name="password" class="form-control" required>
         </div>
         <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"><b>Daftar</b></button>

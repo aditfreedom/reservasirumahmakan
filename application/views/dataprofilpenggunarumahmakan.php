@@ -33,7 +33,7 @@
             <td><?php echo $id_rm;?></td>
             <td><?php echo $username;?></td>
 			      <td><?php echo $password;?></td>
-            <td><?php echo anchor('dashboardrumahmakan/edituserrumahmakan/'.$id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+            <td><?php echo anchor('dashboardrumahmakan/editrm2/'.$id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
 		</tr>
 	<?php ?>
           </tbody>

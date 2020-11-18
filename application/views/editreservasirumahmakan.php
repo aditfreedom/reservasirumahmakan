@@ -63,6 +63,11 @@
         <textarea  name="keterangan_tambahan" class="form-control"><?php echo $status->keterangan_tambahan;?></textarea>
         </div>
         <div class="form-group">
+        <label for="">Foto Transfer DP</label><br>
+        <input type="hidden" name="fotolama" class="form-control" value="<?php echo $status->foto_struk;?>">
+        <img src="<?php echo base_url();?>asset/fotostruk/<?php echo $status->foto_struk;?>" width="300px">
+        </div>
+        <div class="form-group">
         <label for="">Status Reservasi</label>
         <select class="form-control form-control" name="status_reservasi">
           <option disabled selected hidden><?php echo $status->status_reservasi;?></option>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Nov 2020 pada 06.18
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.2.31
+-- Waktu pembuatan: 18 Nov 2020 pada 09.23
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -117,8 +117,7 @@ CREATE TABLE `tb_rekening` (
 --
 
 INSERT INTO `tb_rekening` (`id_rek`, `id_rm`, `nama_bank`, `atas_nama`, `no_rek`) VALUES
-(6, 5, '11', '11', '11'),
-(7, 5, '11', '11', '11');
+(10, 5, 'Bank Aceh Syariah', 'Asep', '123.5454.10-12');
 
 -- --------------------------------------------------------
 
@@ -149,9 +148,12 @@ CREATE TABLE `tb_reservasi` (
 --
 
 INSERT INTO `tb_reservasi` (`id_reservasi`, `id_konsumen`, `nama_konsumen`, `no_hp`, `nama_rm`, `id_rm`, `no_meja`, `nama_menu`, `jumlah_pemesanan`, `total_harga`, `tanggal_reservasi`, `waktu_reservasi`, `keterangan_tambahan`, `foto_struk`, `status_reservasi`) VALUES
-(6, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 3, 75000, '2020-11-15', '12.30', '-', '', 'Menunggu'),
+(6, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 3, 75000, '2020-11-15', '12.30', '-', 'struk1.jpg', 'Menunggu'),
 (8, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 5, 125000, '2020-11-15', '22.30', '-', '', 'Ditolak'),
-(9, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 5, 125000, '2020-11-15', '22.30', '-', '', 'Diterima');
+(9, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 5, 125000, '2020-11-15', '22.30', '-', '', 'Diterima'),
+(10, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 2, 50000, '2020-11-17', '13.30', '-', 'download.jpg', 'Menunggu'),
+(11, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso Lampoh Arab', 5, 1, 'Paket 03', 3, 75000, '2020-11-17', '13.30', '', 'download1.jpg', 'Menunggu'),
+(12, 1, 'Aditya Aziz Fikhri', '081362059403', 'Bakso PIM', 5, 1, 'Paket 03', 6, 150000, '2020-11-17', '13.30', '', 'Struk-seminar-42c179385a598c3e0007f6bde43989be.jpg', 'Menunggu');
 
 -- --------------------------------------------------------
 
@@ -177,7 +179,7 @@ CREATE TABLE `tb_rm` (
 
 INSERT INTO `tb_rm` (`id_rm`, `nama_rm`, `nama_pemilik`, `alamat_rm`, `no_hp`, `foto_rm`, `username`, `password`, `status`) VALUES
 (2, 'Ayam Lepaas', 'Muhammad Roby', 'Bireuen', '081362059403', 'adminrm.jpg', 'ayamlepas', 'ayamlepas', 'Diterima'),
-(5, 'Bakso Lampoh Arab', 'Asep', 'Bireuen', '081362059403', 'foto.jpg', 'lampoharab', 'lampoharab', 'Diterima'),
+(5, 'Bakso PIM', 'Asep', 'Kr. Geukeuh', '081362059403', 'download.jpg', 'lampoharab', 'lampoharab', 'Diterima'),
 (6, 'Warung CM', 'Aditya Aziz Fikhri', 'Bireuen', '081362059403', 'foto1.jpg', 'warungcm', 'warungcm', 'Diterima'),
 (7, 'Pak Ulis', 'Pak Ulis', 'Lhokseumawe', '081362059403', 'foto2.jpg', 'pakulis', 'pakulis', 'Diterima'),
 (9, 'Cak Soleh', 'Soleh', 'Bireuen', '085208520852', '131.png', 'caksoleh', 'caksoleh', 'Diterima'),
@@ -258,7 +260,7 @@ ALTER TABLE `tb_useradmin`
 -- AUTO_INCREMENT untuk tabel `tb_konsumen`
 --
 ALTER TABLE `tb_konsumen`
-  MODIFY `id_konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_konsumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_meja`
@@ -276,13 +278,13 @@ ALTER TABLE `tb_menu`
 -- AUTO_INCREMENT untuk tabel `tb_rekening`
 --
 ALTER TABLE `tb_rekening`
-  MODIFY `id_rek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_rek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_reservasi`
 --
 ALTER TABLE `tb_reservasi`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_rm`

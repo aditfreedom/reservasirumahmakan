@@ -10,6 +10,10 @@ class M_reservasirumahmakan extends CI_Model{
         return $this->db->get_where('tb_konsumen',$where);
     }
 
+    function ceknohp($where){
+        return $this->db->get_where('tb_konsumen',array('no_hp' => $where));
+    }
+
     function cek_loginrumahmakan($where){
         return $this->db->get_where('tb_rm',$where);
     }
@@ -42,6 +46,7 @@ class M_reservasirumahmakan extends CI_Model{
     public function tampil_data_datarekening($where){
         return $this->db->query("SELECT * from tb_rekening where id_rm='$where'");
     }
+
 
     public function ambilmejaready($where){
         $this->db->where('id_rm',$where);
@@ -145,6 +150,11 @@ public function ambil_datapengguna($where)
        $this->db->update('tb_rm',$data); 
    }
 
+   public function updaterekening($where,$data)
+   {   $this->db->where($where);
+       $this->db->update('tb_rekening',$data); 
+   }
+
    public function updateuserrumahmakan($where,$data)
    {   $this->db->where($where);
        $this->db->update('tb_rm',$data); 
@@ -181,6 +191,11 @@ public function ambil_datapengguna($where)
    }
 
    public function updaterm($where,$data)
+   {   $this->db->where($where);
+       $this->db->update('tb_rm',$data); 
+   }
+
+   public function updaterm2($where,$data)
    {   $this->db->where($where);
        $this->db->update('tb_rm',$data); 
    }

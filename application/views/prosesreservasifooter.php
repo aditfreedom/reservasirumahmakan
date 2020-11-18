@@ -1,9 +1,6 @@
 
-    <?php foreach ($datamenu as $menu) : ?>
+    <?php foreach ($tb_rm as $rm) : ?>
       <div class="form-group" hidden>
-        <input type="text" name="nama_rm" class="form-control" value="<?php echo $menu->nama_rm;?>">
+        <input type="text" name="nama_rm" class="form-control" value="<?php echo $rm->nama_rm;?>">
         </div>
-        <div class="form-group" hidden>
-        <input type="text" name="id_rm" class="form-control" value="<?php echo $menu->id_rm;?>">
-        </div>        
         <?php endforeach ;?>

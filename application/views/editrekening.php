@@ -16,18 +16,26 @@
     </div>
     <section class="content">
     <?php foreach ($tb_rekening as $rekening) : ?>
-    <form action="<?= base_url()?>dashboardrumahmakan/editrekening" method="post">
-
+    <form action="<?= base_url()?>dashboardrumahmakan/ubahrekening" method="post">
+    <div class="form-group" hidden>
+        <label for="">id_rek</label>
+        <input type="text" name="id_rek" class="form-control" value="<?php echo $rekening->id_rek;?>">
+        </div>
+        <div class="form-group" hidden>
+        <label for="">id_rm</label>
+        <input type="text" name="id_rm" class="form-control" value="<?php echo $rekening->id_rm;?>">
+        </div>
         <div class="form-group">
         <label for="">Nama Bank</label>
         <input type="text" name="nama_bank" class="form-control" value="<?php echo $rekening->nama_bank;?>">
         </div>
+        <div class="form-group">
         <label for="">Atas Nama</label>
         <input type="text" name="atas_nama" class="form-control" value="<?php echo $rekening->atas_nama;?>">
         </div>
         <div class="form-group">
         <label for="">No Rekening</label>
-        <input type="text" name="nama_rm" class="form-control" value="<?php echo $rekening->no_rek;?>">
+        <input type="text" name="no_rek" class="form-control" value="<?php echo $rekening->no_rek;?>">
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
       </div>

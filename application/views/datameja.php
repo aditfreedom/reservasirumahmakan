@@ -26,7 +26,7 @@
               <th scope="col">NO MEJA</th>
               <th scope="col">KAPASITAS</th>
               <th scope="col">STATUS</th>
-              <th scope="col">UBAH STATUS</th>
+              <!-- <th scope="col">UBAH STATUS</th> -->
             </tr>
           </thead>
           <tbody>
@@ -38,7 +38,7 @@
 			      <td><?php echo $datameja->no_meja;?></td>
                   <td><?php echo $datameja->kapasitas;?></td>
                   <td><?php echo $datameja->status;?></td>
-                  <td><?php echo anchor('dashboard/editmeja/'.$datameja->id_meja,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+                  <!-- <td><?php echo anchor('dashboard/editmeja/'.$datameja->id_meja,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	 -->
 
 		</tr>
 		<?php $i++; ?>
