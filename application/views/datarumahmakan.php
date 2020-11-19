@@ -29,7 +29,8 @@
               <th scope="col">PEMILIK</th>
               <th scope="col">ALAMAT</th>
               <th scope="col">NO HP</th>
-              <th colspan="2" scope="col" >UBAH STATUS</th>
+              <th scope="col">UBAH STATUS</th>
+
             </tr>
           </thead>
           <tbody>
@@ -41,8 +42,8 @@
 			      <td><?php echo $datarm->nama_pemilik ;?></td>
                   <td><?php echo $datarm->alamat_rm;?></td>
                   <td><?php echo $datarm->no_hp ;?></td>
-                  <td onclick="javascript: return confirm('Yakin Ingin Menghapus?')"><?php echo anchor('dashboard/hapusrm/'.$datarm->id_rm,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
-                  <td><?php echo anchor('dashboard/editrm/'.$datarm->id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+                  <!-- onclick="javascript: return confirm('Yakin Ingin Menghapus?')"> -->
+                  <td><?php echo anchor('dashboard/hapusrm/'.$datarm->id_rm,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?> <?php echo anchor('dashboard/editrm/'.$datarm->id_rm,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>
@@ -52,10 +53,13 @@
     </div>
    
 </div>
+</div>
+
+
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content"> 
       <div class="modal-header">
@@ -109,5 +113,5 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 

@@ -18,7 +18,7 @@
     <!-- /.content-header -->
     <div class="content">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    <i class="fa fa-plus"></i> Tambah Meja</button>
+    <i class="fa fa-plus"></i> Tambah Meja</button><br><br>
 
     <table class="table table-hover" id="example">
           <thead class="text-center">
@@ -27,7 +27,7 @@
               <th scope="col">NO MEJA</th>
               <th scope="col">KAPASITAS</th>
               <th scope="col">STATUS</th>
-              <th colspan="2" scope="col" >AKSI</th>
+              <th scope="col" >AKSI</th>
             </tr>
           </thead>
           <tbody>
@@ -38,8 +38,7 @@
 			      <td><?php echo $datameja->no_meja;?></td>
                   <td><?php echo $datameja->kapasitas;?></td>
                   <td><?php echo $datameja->status;?></td>
-                  <td onclick="javascript: return confirm('Yakin Ingin Menghapus?')"><?php echo anchor('dashboardrumahmakan/hapusmejarumahmakan/'.$datameja->id_meja,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
-                  <td><?php echo anchor('dashboardrumahmakan/editmejarumahmakan/'.$datameja->id_meja,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
+                  <td><?php echo anchor('dashboardrumahmakan/hapusmejarumahmakan/'.$datameja->id_meja,'<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?> <?php echo anchor('dashboardrumahmakan/editmejarumahmakan/'.$datameja->id_meja,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	
 
 		</tr>
 		<?php $i++; ?>

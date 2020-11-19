@@ -39,7 +39,6 @@
                   <td><?php echo $datameja->kapasitas;?></td>
                   <td><?php echo $datameja->status;?></td>
                   <!-- <td><?php echo anchor('dashboard/editmeja/'.$datameja->id_meja,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	 -->
-
 		</tr>
 		<?php $i++; ?>
 	<?php endforeach ;?>
