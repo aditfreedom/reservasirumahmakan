@@ -43,7 +43,7 @@
   foreach ($tb_reservasi as $datarm) : ?>
   <div class="row">
     <div class="col">
-    <a class="btn-rm btn text-dark" href="#" role="button" style="width:100%;height:150px;margin-bottom:10px;text-align: left !important;">
+    <a class="btn-rm btn text-dark" href="<?php echo base_url()?>dashboardandroid/ambilreservasi/<?php echo $datarm->id_reservasi;?>" role="button" style="width:100%;height:150px;margin-bottom:10px;text-align: left !important;">
     <table>
     <tr>
     </tr>

@@ -36,7 +36,7 @@
   <a class="navbar-brand" href="#">Navbar</a>
   </div>
 </nav>
-<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">RIWAYAT RESERVASI</div>
+<div class="nav-rm fixed-top text-center font-weight-bold" style="margin-bottom:10px;">RINCIAN RESERVASI</div>
 
 
 <?php $i = 1;   
@@ -47,11 +47,25 @@
     <table>
     <tr>
     </tr>
-    <tr><td valign="top" style="text-transform:uppercase;padding-left:5px; font-weight:bold;font-size:20px;"> <?php echo $datarm->nama_rm;?></td></tr> 
-    <tr><td valign="top" style="padding-left:5px; "><?php echo $datarm->tanggal_reservasi;?>/<?php echo $datarm->waktu_reservasi;?></td></tr> 
-    <tr><td valign="top" style="padding-left:5px; "><a class="btn-rm btn-success" href="#" role="button" style="width:60px;"><?php echo $datarm->status_reservasi?></a></td></tr> 
-    <tr><td valign="top" style="padding-left:5px; "><?php echo $datarm->nama_menu;?></td></tr> 
-    <tr><td valign="top" style="padding-left:5px; "><b>Total (Rp. <?php echo $datarm->total_harga;?>)</b> </td></tr> 
+    <tr><td valign="top" style="padding-left:5px;">Nama RM : <b><?php echo $datarm->nama_rm;?></b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px;">Pesanan : <b><?php echo $datarm->nama_menu;?></b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px;">Jumlah Pesanan : <b><?php echo $datarm->jumlah_pemesanan;?> Item</b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px;">Total Cost : <b>Rp. <?php echo $datarm->total_harga;?></b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px;">No. Meja : <b><?php echo $datarm->no_meja;?></b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; ">Tanggal Reservasi : <b><?php echo $datarm->tanggal_reservasi;?></b></td></tr> 
+    <tr><td valign="top" style="padding-left:5px; ">Waktu Reservasi : <b><?php echo $datarm->waktu_reservasi;?></b></td></tr> 
+
+    <?php
+    $status_reservasi= $datarm->status_reservasi;
+    if ($status_reservasi=="Menunggu") {
+      $class="btn-warning";
+    }else if($status_reservasi=="Diterima"){
+      $class="btn-success";
+    }else{
+      $class="btn-danger";
+    }    
+    ?>
+    <tr><td valign="top" style="padding-left:5px; ">Status : <a class="btn-rm <?= $class;?>" href="#" role="button" style="width:60px;"><b><?php echo $datarm->status_reservasi?></a></b></td></tr> 
 
     </table>
     <hr>

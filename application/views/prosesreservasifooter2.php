@@ -18,7 +18,7 @@
         </div>
         <div class="form-group">
         <label for="">Waktu Reservasi</label>
-        <input type="text" name="waktu_reservasi" class="form-control" required>
+        <input type="time" name="waktu_reservasi" class="form-control" required>
         </div>
         <div class="form-group">
         <label for="">Keterangan Tambahan</label>

@@ -66,6 +66,15 @@ public function statusreservasiandroid(){
     $this->load->view('statusreservasiandroid',$data);
 }
 
+public function ambilreservasi($id){
+    $sess_data = $this->session->userdata();
+    $id =    array ('id_reservasi' => $id);
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->ambilreservasi($id,'tb_menu')->result();
+    $this->load->view('detilreservasi',$data,$sess_data);
+
+
+}
+
 public function riwayatreservasiandroid(){
     $sess_data = $this->session->userdata();
     $where = $this->session->userdata('id_konsumen');
@@ -169,8 +178,8 @@ public function konfirmasireservasi(){
 }
 
 public function lanjutpembayaran(){
-    $sess_data = $this->session->userdata();
-    $id_konsumen       = $this->input->post('id_konsumen');
+    $sess_data          = $this->session->userdata();
+    $id_konsumen        = $this->input->post('id_konsumen');
     $nama_konsumen       = $this->input->post('nama_konsumen');
     $no_hp               = $this->input->post('no_hp');
     $nama_rm             = $this->input->post('nama_rm');
