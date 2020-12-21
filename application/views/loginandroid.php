@@ -26,7 +26,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
                 </div>
-                <input type="text" class="form-control" placeholder="No HP" name="username" required>
+                <input type="number" class="form-control" placeholder="No HP" name="username" required>
             </div>
             <div class="input-group mb-3">
             <div class="input-group-prepend">
