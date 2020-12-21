@@ -30,6 +30,7 @@
               <th scope="col">JUMLAH</th>
               <th scope="col">TANGGAL RESERVASI</th>
               <th scope="col">WAKTU</th>
+              <th scope="col">TANGGAL MASUK</th>
               <th scope="col">STATUS</th>
               <!-- <th scope="col">UBAH STATUS</th> -->
             </tr>
@@ -47,6 +48,7 @@
                   <td><?php echo $datareservasi->jumlah_pemesanan;?></td>
                   <td><?php echo $datareservasi->tanggal_reservasi;?></td>
                   <td><?php echo $datareservasi->waktu_reservasi;?></td>
+                  <td><?php echo $datareservasi->tanggalwkt;?></td>
                   <td><?php echo $datareservasi->status_reservasi;?></td>
                   <!-- <td><?php echo anchor('dashboard/editreservasi/'.$datareservasi->id_reservasi,'<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div>')?></td>	 -->
                   </tr>

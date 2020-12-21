@@ -68,8 +68,10 @@ class M_reservasirumahmakan extends CI_Model{
      }
 
      public function tampil_data_datareservasi(){
-        return $this->db->get_where('tb_reservasi', array('status_reservasi' => 'Menunggu'));
+        return $this->db->get_where('tb_reservasi', array('status_reservasi' => 'Menunggu','status_bayar' => 'Sudah Bayar'));
      }
+
+
      public function tampil_data_datariwayatreservasirumahmakan($where){
         $query = $this->db->query("SELECT * from tb_reservasi where (status_reservasi = 'Diterima' or status_reservasi='Ditolak') and id_rm='$where'");
       return $query;
@@ -81,21 +83,32 @@ class M_reservasirumahmakan extends CI_Model{
 }
 
    public function tampil_data_datareservasirumahmakan($where){
-    $query = $this->db->query("SELECT * from tb_reservasi where status_reservasi = 'Menunggu' and id_rm='$where'");
+    $query = $this->db->query("SELECT * from tb_reservasi where status_reservasi = 'Menunggu' and status_bayar='Sudah Bayar' and id_rm='$where'");
   return $query;
 }
 
 public function tampil_data_datareservasirumahmakanandroid($where){
-    $query = $this->db->query("SELECT * from tb_reservasi where (status_reservasi = 'Menunggu' or status_reservasi = 'Ditolak') and id_konsumen='$where'");
+    $query = $this->db->query("SELECT * from tb_reservasi where (status_reservasi = 'Menunggu' or status_reservasi = 'Ditolak') and status_bayar='Sudah Bayar' and id_konsumen='$where'");
   return $query;
 }
 
+
+public function ambil_data_keranjang($where){
+    $query = $this->db->query("SELECT * from tb_reservasi where status_bayar = 'Belum Bayar' and id_konsumen='$where'");
+  return $query;
+}
+
+public function editkeranjang($id)
+{
+    return $this->db->get_where('tb_reservasi',$id);  
+}
 
 
 public function tampil_data_datariwayatreservasirumahmakanandroid($where){
     $query = $this->db->query("SELECT * from tb_reservasi where (status_reservasi = 'Diterima') and id_konsumen='$where'");
   return $query;
 }
+
 
 
 public function editreservasirumahmakan($id)
@@ -199,6 +212,11 @@ public function ambil_datapengguna($where)
    public function updaterm($where,$data)
    {   $this->db->where($where);
        $this->db->update('tb_rm',$data); 
+   }
+
+   public function updatekeranjang($where,$data)
+   {   $this->db->where($where);
+       $this->db->update('tb_reservasi',$data); 
    }
 
    public function updaterm2($where,$data)

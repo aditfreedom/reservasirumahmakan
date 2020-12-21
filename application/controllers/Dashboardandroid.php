@@ -59,6 +59,8 @@ public function ambilmenurm($id){
 
 }
 
+
+
 public function statusreservasiandroid(){
     $sess_data = $this->session->userdata();
     $where = $this->session->userdata('id_konsumen');
@@ -157,6 +159,7 @@ public function konfirmasireservasi(){
     $keterangan_tambahan = $this->input->post('keterangan_tambahan');
     $status_reservasi    = "Menunggu";
 
+
     $data = array(
         'id_konsumen' => $id_konsumen,
         'nama_konsumen' => $nama_konsumen,
@@ -172,6 +175,7 @@ public function konfirmasireservasi(){
         'waktu_reservasi' => $waktu_reservasi,
         'keterangan_tambahan' => $keterangan_tambahan,
         'status_reservasi' => $status_reservasi
+
     );
 
     $this->load->view('konfirmasiheader',$data);
@@ -193,10 +197,28 @@ public function lanjutpembayaran(){
     $waktu_reservasi     = $this->input->post('waktu_reservasi');
     $keterangan_tambahan = $this->input->post('keterangan_tambahan');
     $status_reservasi    = "Menunggu";
+    $status_bayar        = "Belum Bayar";
 
 
 
     $data = array(
+        'id_konsumen' => $id_konsumen,
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'nama_rm' => $nama_rm,
+        'id_rm' => $id_rm,
+        'no_meja' => $no_meja,
+        'nama_menu' => $nama_menu,
+        'jumlah_pemesanan' => $jumlah_pemesanan,
+        'total_harga' => $total_harga,
+        'tanggal_reservasi' => $tanggal_reservasi,
+        'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
+        'status_reservasi' => $status_reservasi,
+        'status_bayar' => $status_bayar
+    );
+
+    $data3 = array(
         'id_konsumen' => $id_konsumen,
         'nama_konsumen' => $nama_konsumen,
         'no_hp' => $no_hp,
@@ -210,14 +232,148 @@ public function lanjutpembayaran(){
         'tanggal_reservasi' => $tanggal_reservasi,
         'waktu_reservasi' => $waktu_reservasi,
         'keterangan_tambahan' => $keterangan_tambahan,
+        'status_reservasi' => $status_reservasi,
+        'status_bayar' => $status_bayar
+    );
+
+    $this->M_reservasirumahmakan->tambahreservasi($data,'tb_reservasi');
+    $this->load->view('keranjang');
+    
+
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_konsumen');
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->ambil_data_keranjang($where)->result();
+    $this->load->view('keranjang2',$data);
+
+    // $this->load->view('lanjutpembayaran',$data3);
+    // $data2['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($id_rm,'tb_rekening')->result();
+    // $this->load->view('lanjutpembayaran2',$data2);
+
+}
+
+public function keranjang(){
+    $sess_data = $this->session->userdata();
+    $where = $this->session->userdata('id_konsumen');
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->ambil_data_keranjang($where)->result();
+    $this->load->view('keranjang2',$data);
+}
+
+public function bayarkeranjang($id){
+    $sess_data          = $this->session->userdata();
+    $id =    array ('id_reservasi' => $id);
+    $data['tb_reservasi'] = $this->M_reservasirumahmakan->editkeranjang($id,'tb_reservasi')->result();
+   
+    $this->load->view('bayarkeranjang',$data);
+
+
+    // $data3['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($id_rm,'tb_rekening')->result();
+    // $this->load->view('bayarkeranjang2',$data3);
+
+}
+
+public function bayarkeranjangnext(){
+    $sess_data      = $this->session->userdata();
+    $id_reservasi         = $this->input->post('id_reservasi');
+    $id_konsumen         = $this->input->post('id_konsumen');
+    $nama_konsumen       = $this->input->post('nama_konsumen');
+    $no_hp               = $this->input->post('no_hp');
+    $nama_rm             = $this->input->post('nama_rm');
+    $id_rm               = $this->input->post('id_rm');
+    $no_meja             = $this->input->post('no_meja');
+    $nama_menu           = $this->input->post('nama_menu');
+    $jumlah_pemesanan    = $this->input->post('jumlah_pemesanan');
+    $total_harga         = $this->input->post('total_harga');
+    $tanggal_reservasi   = $this->input->post('tanggal_reservasi'); //y-m-d
+    $waktu_reservasi     = $this->input->post('waktu_reservasi'); // H:i:s
+    $keterangan_tambahan = $this->input->post('keterangan_tambahan');
+    $status_reservasi    = $this->input->post('status_reservasi');
+
+
+    $data3 = array(
+        'id_reservasi' => $id_reservasi,
+        'id_konsumen' => $id_konsumen,
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'nama_rm' => $nama_rm,
+        'id_rm' => $id_rm,
+        'no_meja' => $no_meja,
+        'nama_menu' => $nama_menu,
+        'jumlah_pemesanan' => $jumlah_pemesanan,
+        'total_harga' => $total_harga,
+        'tanggal_reservasi' => $tanggal_reservasi,
+        'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
         'status_reservasi' => $status_reservasi
     );
 
-    $this->load->view('lanjutpembayaran',$data);
-    $data2['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($id_rm,'tb_rekening')->result();
-    $this->load->view('lanjutpembayaran2',$data2);
+    $data3['tb_rekening'] = $this->M_reservasirumahmakan->tampil_data_datarekening($id_rm,'tb_rekening')->result();
+    $this->load->view('bayarkeranjang2',$data3);
 
 }
+
+public function gantireservasi(){
+    $id_reservasi         = $this->input->post('id_reservasi');
+    $id_konsumen         = $this->input->post('id_konsumen');
+    $nama_konsumen       = $this->input->post('nama_konsumen');
+    $no_hp               = $this->input->post('no_hp');
+    $nama_rm             = $this->input->post('nama_rm');
+    $id_rm               = $this->input->post('id_rm');
+    $no_meja             = $this->input->post('no_meja');
+    $nama_menu           = $this->input->post('nama_menu');
+    $jumlah_pemesanan    = $this->input->post('jumlah_pemesanan');
+    $total_harga         = $this->input->post('total_harga');
+    $tanggal_reservasi   = $this->input->post('tanggal_reservasi'); // Y-m-d
+    $waktu_reservasi     = $this->input->post('waktu_reservasi');
+    $keterangan_tambahan = $this->input->post('keterangan_tambahan');
+    $status_reservasi    = $this->input->post('status_reservasi');
+    $status_bayar         = $this->input->post('status_bayar');
+    date_default_timezone_set("Asia/Jakarta");
+    $tanggalwkt           = date('Y-m-d H:i:s');
+
+
+    $config['upload_path']          = 'asset/fotostruk/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $config['max_size']             = 10000;
+    $config['max_width']            = 10000;
+    $config['max_height']           = 10000;
+
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+
+    if (! $this->upload->do_upload('foto_struk')) {
+        $this->load->view('errorupload');
+    }else{
+        $foto_struk=$this->upload->data('file_name');
+    }
+
+
+    $data = array(
+        'id_konsumen' => $id_konsumen,
+        'nama_konsumen' => $nama_konsumen,
+        'no_hp' => $no_hp,
+        'nama_rm' => $nama_rm,
+        'id_rm' => $id_rm,
+        'no_meja' => $no_meja,
+        'nama_menu' => $nama_menu,
+        'jumlah_pemesanan' => $jumlah_pemesanan,
+        'total_harga' => $total_harga,
+        'tanggal_reservasi' => $tanggal_reservasi,
+        'waktu_reservasi' => $waktu_reservasi,
+        'keterangan_tambahan' => $keterangan_tambahan,
+        'foto_struk' => $foto_struk,
+        'status_reservasi' => $status_reservasi,
+        'tanggalwkt' => $tanggalwkt,
+        'status_bayar' => $status_bayar
+    );
+
+    $where = array(
+        'id_reservasi' => $id_reservasi
+    );
+    $this->M_reservasirumahmakan->updatekeranjang($where,$data,'tb_rm');
+    $this->load->view('reservasisukses');
+    $this->load->view('homeandroid');
+}
+
 
 public function lanjutreservasi(){
     $sess_data = $this->session->userdata();

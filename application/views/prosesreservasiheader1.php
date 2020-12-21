@@ -1,4 +1,3 @@
-
   <form action="<?php echo base_url()?>dashboardandroid/konfirmasireservasi" method="post">
   <div class="form-group" hidden>
         <input type="text" name="id_konsumen" class="form-control" value="<?php echo $id_konsumen;?>">

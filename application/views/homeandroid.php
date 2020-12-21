@@ -83,6 +83,9 @@
     <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/editprofilandroid" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-user"></i></a>
     </div>
     <div class="col">
+    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/keranjang" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-shopping-cart"></i></a>
+    </div>
+    <div class="col">
     <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/logout" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-sign-out-alt"></i></a>
     </div>  
   </div>

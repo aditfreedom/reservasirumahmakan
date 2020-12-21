@@ -56,4 +56,14 @@ var x = setInterval(function() {
 </script>
   </div>
   </div>
+  <div class="fixed-bottom text-center text-light">
+<div class="row">
+    <div class="col">
+    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-home"></i></a>
+    </div>
+    <div class="col">
+    <a class="btn font-weight-bold text-light" href="<?php echo base_url()?>dashboardandroid/logout" role="button" style="line-height:40px;font-size:30px;"><i class="fa fa-sign-out-alt"></i></a>
+    </div>  
+  </div>
+</div>
    
