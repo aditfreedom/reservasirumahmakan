@@ -73,7 +73,7 @@
 <a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/riwayatreservasiandroid" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-history"></i><p style="font-size:3vw;">RIWAYAT RESERVASI</p></a>
   </td>
   <td>
-  <a class="btn bg-gradient-warning font-weight-bold" href="<?php echo base_url()?>dashboardandroid/tentang" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-user"></i><p style="font-size:3vw;">TENTANG APLIKASI</p></a>
+  <a class="btn bg-gradient-warning font-weight-bold" href="#" role="button" style="width:70%;padding-top:10%;"><i class="fa fa-user"></i><p style="font-size:3vw;">TENTANG APLIKASI</p></a>
   </td>
 </tr>
 

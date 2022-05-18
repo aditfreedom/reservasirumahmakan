@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="#">Ulianum Sari</a>.</strong>
+    <strong>Copyright &copy; 2020 <a href="#">Reservasi Rumah Makan</a>.</strong>
     All rights reserved.
   </footer>
 
